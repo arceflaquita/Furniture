@@ -47,7 +47,7 @@
 							</span>
 							<button type="submit" class="btn btn-default">Login</button>
               <?php
-              if(isset($_SESSION['error_login']) && $_SESSION['error_login'] <> ''){
+              if(isset($_SESSION['error_login']) && $_SESSION['error_login'] != ''){
                   echo '<div class="error row row-centered">' . $_SESSION['error_login'] . '</div>';
               }
               ?>
@@ -67,7 +67,7 @@
 							<input type="password"  name="txtpassword" placeholder="Password"/>
 							<button type="submit" class="btn btn-default">Signup</button>
               <?php
-              if(isset($_SESSION['error_addCustomer']) && $_SESSION['error_addCustomer'] <> ''){
+              if(isset($_SESSION['error_addCustomer']) && $_SESSION['error_addCustomer'] != ''){
                   echo '<div class="error row row-centered">' . $_SESSION['error_addCustomer'] . '</div>';
               }
               ?>

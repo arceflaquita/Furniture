@@ -16,14 +16,14 @@
           </ul>
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 username">
         <?php
-        if(isset($_SESSION['name']) && $_SESSION['name'] <> ''){
-            echo '<div class="username">' . $_SESSION['name'] . '</div>';
+        if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
+            echo '<a href="profileCustomer.php"><img src="images/admin/user.png" width="20px">&nbsp;Mi cuenta</a>';
         }
         ?>
       </div>
-      <div class="username">
+      <div class="col-sm-6 username">
         <a href="logout.php">Salir</a>
       </div>
     </div>

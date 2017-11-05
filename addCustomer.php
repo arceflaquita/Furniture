@@ -1,15 +1,14 @@
 <?php
 session_start();
-
 include_once('conexion.php');
 
 $name = $_POST['txtname'];
 $firstname = $_POST['txtfirstname'];
-$mail = $_POST['txtemail'];
+$email = $_POST['txtemail'];
 $password = $_POST['txtpassword'];
 $p_hash = crypt($password, "manchitas");
 $id_cliente = 0;
-$sql = "CALL spInsCustomer('$mail', '$p_hash','$name', '$firstname', @_id_cliente);";
+$sql = "CALL spInsCustomer('$email', '$p_hash','$name', '$firstname', @_id_cliente);";
 //echo $sql;
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 //var_dump($result);
@@ -28,10 +27,11 @@ if($id_cliente == -1)
   return;
 }
 
-$_SESSION['mail'] = $mail;
+$_SESSION['email'] = $email;
 $_SESSION['name'] = $name;
 $_SESSION['id_categoria'] = 2;
 
 header("Location: index.php");
+return;
 
 ?>

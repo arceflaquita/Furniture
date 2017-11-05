@@ -7,7 +7,7 @@
       </div>
       <div class="col-sm-6">
         <?php
-        if(isset($_SESSION['name']) && $_SESSION['name'] <> ''){
+        if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
             echo '<div class="username">' . $_SESSION['name'] . '</div>';
         }
         ?>
