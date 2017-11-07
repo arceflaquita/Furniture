@@ -16,7 +16,7 @@ $resultado="<div class='row'>
                         <th>Nombre</th>
                         <th>telefono</th>
                         <th>correo</th>
-                        <th>Opciones</th>
+                        <th>Actualizar</th>
                         
                     </thead>
                     ";
@@ -37,9 +37,7 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
                                 <a class='btn btn-default btn-sm' title='Modificar Producto' href='consultaProvedor.php?idProvedor=".$row['id_provedor']."'>
                                     <span class='glyphicon glyphicon-edit'></span> 
                                 </a>
-                                <a class='btn btn-default btn-sm' title='Eliminar Producto'  onclick='eliminar(".$row['id_provedor'].")'>
-                                    <span class='glyphicon glyphicon-trash' ></span> 
-                                </a>
+                                
                             </td>
                         </tr>
                     </tbody>
