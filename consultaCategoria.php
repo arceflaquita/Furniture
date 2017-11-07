@@ -9,7 +9,7 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
               $resultado.=" <option value='".$row['id_categoria']."'>".$row['categoria']."</option>";
                
             } 
-             $resultado.=" </select>";
+             $resultado.=" </select> </br>";
  echo $resultado;
     
 ?>

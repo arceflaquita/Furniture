@@ -55,7 +55,7 @@
           
               <?php include_once('consultaCategoria.php'); ?>
 
-              <?php include_once('consultaProvedor.php'); ?>
+              <?php include_once('consultaComboProvedores.php'); ?>
               </br></br>
              <textarea class="form-control" name="txtDescripcion" placeholder="Descripción" rows="5" required="required" ></textarea>
              
