@@ -49,9 +49,9 @@
 
 	<section>
 		<div class="container">
-			<div class="row">
-        <table border="1">
-        <tr>
+			<div class="row table-responsive">
+        <table class="table table-bordered">
+        <tr style="background-color: #c266ff;">
           <th>Nombre cliente</th>
           <th>Apellido paterno</th>
           <th>Apellido materno</th>
