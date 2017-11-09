@@ -9,10 +9,13 @@ CREATE PROCEDURE updateProducto(
   IN _descripcion varchar(45),
   IN _id_categoria int,
   IN _id_provedor int,
-  IN _id_producto int
+  IN _id_producto int,
+  IN _imagen varchar(255)
 )
 
 BEGIN
+
+UPDATE `pv_imagen` SET `imagen`=_imagen WHERE `id_producto`=_id_producto;
 
 
 UPDATE `pv_producto` SET

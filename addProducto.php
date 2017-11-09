@@ -7,9 +7,30 @@ $precioVenta=(float)$_POST['txtPrecioVenta'];
 $descripcion=$_POST['txtDescripcion'];
 $idCategoria=(int)$_POST['comboCategoria'];
 $idProvedor=(int)$_POST['comboProvedor'];
+$imagen="";
+
+if ($_POST['action'] == 'upload') {
+            //Obtener datos del archivo
+            $tamaño = $_FILES["archivo"]['size'];
+            $tipo = $_FILES["archivo"]['type'];
+            $archivo = $_FILES["archivo"]['name'];
+            $prefijo = substr(md5(uniqid(rand())), 0, 6);
+            if ($archivo != "") {
+            //Guardamos el archivo en la carpeta files
+                $destino = "files/" . $prefijo . "_" . $archivo;
+                if (copy($_FILES["archivo"]['tmp_name'], $destino)) {
+                	$imagen= $prefijo . "_" . $archivo;
+                    $status = "Archivo subido: <b>". $archivo ."</b>";
+                } else {
+                    $status="Error al subir el archivo";
+                }
+            }else{
+                $status="No hay archivo seleccionado";
+            }
+        }
 
 
-$sql = "CALL addArticulo('$producto', $precioCompra,$precioVenta, '$descripcion', $idCategoria,$idProvedor);";
+$sql = "CALL addArticulo('$producto', $precioCompra,$precioVenta, '$descripcion', $idCategoria,$idProvedor,'".$prefijo . "_" . $archivo."');";
 
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 
@@ -18,6 +39,6 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 
 
 
-header("Location: index.php");
+header("Location: searchProducto.php");
 
 ?>

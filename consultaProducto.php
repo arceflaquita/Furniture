@@ -40,7 +40,8 @@ $precioVenta="";
 $description="";
 $idCategoria="";
 $idProvedor="";
-$sql="select *  from pv_producto where id_producto=".$idProducto;
+$imagen="";
+$sql="SELECT * FROM pv_imagen, pv_producto WHERE pv_producto.`id_producto`=".$idProducto;
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
             $producto=$row['producto'];
@@ -49,6 +50,7 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             $description=$row['descripcion'];
             $idCategoria=$row['id_categoria'];
             $idProvedor=$row['id_provedor'];   
+            $imagen=$row['imagen'];
             } 
 
 
@@ -89,8 +91,9 @@ $resulte = $conn->query($sql) or die("error: " . mysqli_error($conn));
         <div class="col-md-10">
           <div class="signup-form"><!--sign up form-->
             <h2>Actualizar Producto</h2>
-            <form action="updateProducto.php" method="post">
+            <form action="updateProducto.php" method="post" id="formA" enctype="multipart/form-data">
               <input type='text' style='display:none;' name='txtIdproducto' id='txtIdproducto'  value=<?php echo $idProducto?> />
+               <input type='text' style='display:none;' name='txtimagen' id='txtimagen'  value=<?php echo $imagen?> />
               <div class="col-md-5">
               <input type="text" name="txtproducto"  class="form-control" placeholder="Nombre del producto" required="required" value=<?php echo $producto?> />
                <div class="input-group">
@@ -102,6 +105,18 @@ $resulte = $conn->query($sql) or die("error: " . mysqli_error($conn));
                  <span class="input-group-addon">$</span>
               <input type="text" name="txtPrecioVenta" class="form-control" placeholder="Precio Venta" required="required" value=<?php echo $precioVenta?> />
             </div>
+          </br>
+            <div class="input-group" >
+            <td>Imagen Guardada:</td>
+            
+            <?php echo "<img src='files/".$imagen."' style='width: 30%'>" ?>
+            </div>
+             </br>
+            <div>
+             <td>Modificar:</td>
+            <td><input type="file" name="archivo" id="archivo"  size="35" accept="image/png, .jpeg, .jpg, image/gif" ><input type="hidden" name="action" value="upload" ></div>
+
+
             </div>
             <div class="col-md-5">
           

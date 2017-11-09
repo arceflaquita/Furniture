@@ -1,6 +1,9 @@
 <?php
 
   include_once('conexion.php');
+
+
+
 $resultado="<div class='row'>
         <div class='panel panel-primary'>
          <h1>Productos</h1>
@@ -13,6 +16,7 @@ $resultado="<div class='row'>
                 <table class='table'>
                     <thead>
                         <th>#</th>
+                        <th>Imagen</th>
                         <th>Nombre</th>
                         <th>descripcion</th>
                         <th>Opciones</th>
@@ -20,15 +24,17 @@ $resultado="<div class='row'>
                     </thead>
                     ";
 
-$sql="select * from pv_producto";
-
+$sql="CALL searchProductos();";
+$idProducto="";
+$imagen="";
 
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
-              
+              $idProducto=$row['id_producto'];
                $resultado.=" <tbody>
                         <tr>
                         	<td>".$row['id_producto']."</td>
+                            <td><img src='files/".$row['imagen']."' width='40px' alt=''></td>
                             <td>".$row['producto']."</td>
                             <td>".$row['descripcion']."</td>
                             
@@ -49,6 +55,8 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
            
         </div>
     </div>";
+
+
  echo $resultado;
     
 ?>

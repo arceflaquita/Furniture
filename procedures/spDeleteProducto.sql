@@ -9,7 +9,10 @@ CREATE PROCEDURE deleteProducto(
 BEGIN
 
 
+DELETE FROM `pv_imagen` WHERE `id_producto`=_id_producto;
+
 DELETE FROM `pv_producto` WHERE `id_producto`=_id_producto;
+
 
 END $$
 DELIMITER ;

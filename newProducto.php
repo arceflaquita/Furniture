@@ -38,7 +38,7 @@
 				<div class="col-md-10">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Nuevo Producto</h2>
-						<form action="addProducto.php" method="post">
+						<form action="addProducto.php" id="formA" method="post" enctype="multipart/form-data">
               <div class="col-md-5">
 							<input type="text" name="txtproducto"  class="form-control" placeholder="Nombre del producto" required="required"/>
                <div class="input-group">
@@ -50,6 +50,10 @@
                  <span class="input-group-addon">$</span>
 							<input type="text" name="txtPrecioVenta" class="form-control" placeholder="Precio Venta" required="required"/>
             </div>
+            </br>
+             <div>
+             <td>Imagen:</td>
+            <td><input type="file" name="archivo" id="archivo" required="required" size="35" accept="image/png, .jpeg, .jpg, image/gif" ><input type="hidden" name="action" value="upload" ></div>
             </div>
             <div class="col-md-5">
           
@@ -58,6 +62,7 @@
               <?php include_once('consultaComboProvedores.php'); ?>
               </br></br>
              <textarea class="form-control" name="txtDescripcion" placeholder="Descripción" rows="5" required="required" ></textarea>
+             
              
 							</div>
 							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> AGREGAR</button>

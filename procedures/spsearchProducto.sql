@@ -9,7 +9,10 @@ CREATE PROCEDURE searProducto(
 
 BEGIN
 
-SELECT * FROM `pv_producto` WHERE `id_producto`=_id_producto;
+
+SELECT * FROM pv_imagen, pv_producto WHERE pv_producto.`id_producto`=_id_producto;
+
+
 
 END $$
 DELIMITER ;
