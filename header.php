@@ -1,34 +1,44 @@
-<div class="header_top"><!--header_top-->
+<div class="header_top"><!--header-bottom-->
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <div class="contactinfo">
-          <ul class="nav nav-pills">
-            <li><a href="#"><i class=""></i>INICIO</a></li>
-            <li><a href="#"><i class=""></i>NUEVO</a></li>
-            <li><a href="#"><i class=""></i>DESTACADOS</a></li>
-            <li><a href="#"><i class=""></i>MÁS VENDIDOS</a></li>
-            <li><a href="#"><i class=""></i>OFERTAS</a></li>
-            <li><a href="#"><i class=""></i>FABRICANTES</a></li>
-            <li><a href="#"><i class=""></i>NUEVO</a></li>
-            <li><a href="#"><i class=""></i>COMENTARIOS</a></li>
-            <li><a href="contact-us.html"><i class=""></i>CONTACTOS</a></li>
-          </ul>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
         </div>
-      </div>
-      <div class="col-sm-6 username">
-        <?php
-        if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
-            echo '<a href="profileCustomer.php"><img src="images/admin/user.png" width="20px">&nbsp;Mi cuenta</a>';
-        }
-        ?>
-      </div>
-      <div class="col-sm-6 username">
-        <a href="logout.php">Salir</a>
+        <div class="contactinfo">
+          <ul class="nav navbar-nav collapse navbar-collapse">
+            <li><a href="index.html" class="active">INICIO</a></li>
+            <li class="dropdown"><a href="#">NUEVO<i class="fa fa-angle-down"></i></a></li>
+            <li class="dropdown"><a href="#">DESTACADOS<i class="fa fa-angle-down"></i></a></li>
+            <li><a href="404.html">MÁS VENDIDOS</a></li>
+            <li><a href="contact-us.html">OFERTAS</a></li>
+            <li><a href="contact-us.html">FABRICANTES</a></li>
+            <li><a href="contact-us.html">NUEVO</a></li>
+            <li><a href="contact-us.html">COMENTARIOS</a></li>
+            <li><a href="contact-us.html">CONTACTOS</a></li>
+            <div class="col-sm-6 username">
+              <a href="logout.php">Salir</a>
+            </div>
+          </ul>
+          <div class="col-sm-6 username">
+            <?php
+            if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
+                echo '<a href="profileCustomer.php"><img src="images/admin/user.png" width="20px">&nbsp;Mi cuenta</a>';
+            }
+            ?>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
-</div><!--/header_top-->
+</div><!--/header-bottom-->
 
 <div class="header-middle"><!--header-middle-->
   <div class="container">
@@ -65,29 +75,3 @@
     </div>
   </div>
 </div><!--/header-middle-->
-
-<div class="header-bottom"><!--header-bottom-->
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="mainmenu pull-left">
-          <ul class="nav navbar-nav collapse navbar-collapse">
-            <li><a href="index.html" class="active">BEDROOM</a></li>
-            <li class="dropdown"><a href="#">LIVING ROOM<i class="fa fa-angle-down"></i></a></li>
-            <li class="dropdown"><a href="#">DINING ROOM<i class="fa fa-angle-down"></i></a></li>
-            <li><a href="404.html">KITCHEN</a></li>
-            <li><a href="contact-us.html">LEATHER SECTIONALS</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div><!--/header-bottom-->

@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background:#ffff;
+  background:#f3f3f3;
   position: relative;
   font-weight:400px;
 }
@@ -195,12 +195,6 @@ transform: rotate(360deg);
   box-shadow: none;
 }
 
-.dropdown-menu  li  a:hover, .dropdown-menu  li  a:focus {
-  background-color: #FE980F;
-  color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
-  text-decoration: none;
-}
 
 
 .shop-menu ul li {
@@ -215,7 +209,6 @@ transform: rotate(360deg);
 
 
 .shop-menu ul li a {
-  background: #FFFFFF;
   color: #696763;
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
@@ -273,19 +266,19 @@ transform: rotate(360deg);
 }
 
 .search_box input {
-  background: #F0F0E9;
-  border: medium none;
-  color: #B2B2B2;
-  font-family: 'roboto';
-  font-size: 12px;
-  font-weight: 300;
-  height: 35px;
-  outline: medium none;
-  padding-left: 10px;
-  width: 155px;
-  background-image: url(../images/home/searchicon.png);
-  background-repeat: no-repeat;
-  background-position: 130px;
+    background: #E0E0E099;
+    border: medium none;
+    color: #151414;
+    font-family: 'roboto';
+    font-size: 12px;
+    font-weight: 300;
+    height: 35px;
+    outline: medium none;
+    padding-left: 10px;
+    width: 255px;
+    background-image: url(../images/home/searchicon.png);
+    background-repeat: no-repeat;
+    background-position: 230px;
 }
 
 
@@ -295,7 +288,9 @@ transform: rotate(360deg);
 .navbar-toggle .icon-bar {
     background-color: #fff;
 }
-
+.productinfo img{
+  width: 0px;
+}
 
 .nav.navbar-nav > li:hover > ul.sub-menu{
   display: block;
@@ -366,7 +361,7 @@ ul.sub-menu {
 **************************/
 
 #footer {
-  background: #F0F0E9;
+  background: #000;
 }
 
 
@@ -487,8 +482,18 @@ ul.sub-menu {
 
 .footer-widget {
   margin-bottom: 68px;
+background-color: #000c;
+width: 73.3%;
+margin-left: 210px;
 }
-
+.detalles{
+  background-color: #f3f3f3;
+  color: black;
+}
+.añadir{
+  background-color: orange;
+  color: white;
+}
 .footer-widget .container {
   border-top: 1px solid #FFFFFF;
   padding-top: 15px;
@@ -518,12 +523,6 @@ ul.sub-menu {
 .single-widget ul li a i {
   margin-right: 18px;
 }
-
-.single-widget ul li a:hover{
-	background:none;
-	color:#FE980F;
-}
-
 
 .searchform input {
   border: 1px solid #DDDDDD;
@@ -686,21 +685,18 @@ ul.sub-menu {
 }
 
 .category-products {
-  border: 1px solid #F7F7F0;
   margin-bottom: 35px;
-  padding-bottom: 20px;
-  padding-top: 15px;
+padding-bottom: 20px;
+padding-top: 15px;
 }
 .left-sidebar h2, .brands_products h2 {
   color: #FE980F;
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0 auto 30px;
-  text-align: center;
-  text-transform: uppercase;
-  position: relative;
-  z-index:3;
+font-family: 'Roboto', sans-serif;
+font-size: 18px;
+font-weight: 700;
+text-transform: uppercase;
+margin-bottom: 0px;
+position: relative;
 }
 
 .left-sidebar h2:after, h2.title:after{
@@ -715,7 +711,6 @@ ul.sub-menu {
 }
 
 .left-sidebar h2:before{
-	content: " ";
 	position: absolute;
 	background: #fff;
 	bottom: -6px;
@@ -727,7 +722,6 @@ ul.sub-menu {
 }
 
 h2.title:before{
-	content: " ";
 	position: absolute;
 	background: #fff;
 	bottom: -6px;
@@ -869,13 +863,12 @@ h2.title:before{
 
 h2.title {
   color: #FE980F;
-  font-family: 'Roboto', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 0 15px;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-  position: relative;
+font-family: 'Roboto', sans-serif;
+font-size: 18px;
+font-weight: 700;
+text-transform: uppercase;
+margin-bottom: 0px;
+position: relative;
 }
 
 .product-image-wrapper{
@@ -895,7 +888,7 @@ h2.title {
 }
 
 .productinfo h2{
-	color: #FE980F;
+	color: #171616;
 	font-family: 'Roboto', sans-serif;
 	font-size: 24px;
 	font-weight: 700;
@@ -912,7 +905,7 @@ h2.title {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  color: #696763;
+  color: #ffa500;
 }
 
 .productinfo img{
@@ -1483,7 +1476,7 @@ h2.title {
 
 
 .login-form form input, .signup-form form input {
-  background: #F0F0E9;
+  background:#FFF;
   border: medium none;
   color: #696763;
   display: block;
