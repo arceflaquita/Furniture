@@ -61,49 +61,39 @@
 				<div class="col-3" style="margin-top: 5px;">
 					<div class="left-sidebar">
 						<h2>Especiales</h2>
-						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							<div class="panel panel-default">
-                  <div class="img-special1"><img class="img-special" src="images/home/paulin-sillon-web.jpg" alt=""  /></div>
-                  <div class="details-spe">
-                    <p class="" style="color:orange;">bello sillon para una persona, color naranja</p>
-                    <label id="precio">$200.00</label>
+						<?php
+					 include_once('conexion.php');
+             $producto="";
+$precioCom="";
+$precioVenta="";
+$description="";
+$idCategoria="";
+$idProvedor="";
+$imagen="";
+$contador=0;
+$sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen` limit 6 ";
+$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+            while($row=$result->fetch_assoc()){
+            echo "<div class='panel-group category-products' id='accordian'><!--category-productsr-->
+							<div class='panel panel-default'>
+                  <div class='img-special1'><img class='img-special' src='files/".$row['imagen']."' alt=''  /></div>
+                  <div class='details-spe'>
+                    <p class='' style='color:orange;'>".$row['producto']."</p>
+                    <label id='precio'>$".$row['precio_venta']."</label>
                   </div>
-							</div>
-              <div class="panel panel-default">
-                  <div class="img-special1"><img class="img-special" src="images/home/sillon.jpg" alt=""  /></div>
-                  <div class="details-spe">
-                    <p class="" style="color:orange;">bello sillon para una persona, color naranja</p>
-                    <label id="precio">$200.00</label>
-                  </div>
-							</div>
-              <div class="panel panel-default">
-                  <div class="img-special1"><img class="img-special" src="images/home/sillon2.jpg" alt=""  /></div>
-                  <div class="details-spe">
-                    <p class="" style="color:orange;">bello sillon para una persona, color naranja</p>
-                    <label id="precio">$200.00</label>
-                  </div>
-							</div>
-              <div class="panel panel-default">
-                  <div class="img-special1"><img class="img-special" src="images/home/sillon3.jpg" alt=""  /></div>
-                  <div class="details-spe">
-                    <p class="" style="color:orange;">bello sillon para una persona, color naranja</p>
-                    <label id="precio">$200.00</label>
-                  </div>
-							</div>
-              <div class="panel panel-default">
-                  <div class="img-special1"><img class="img-special" src="images/home/sillon4.jpg" alt=""  /></div>
-                  <div class="details-spe">
-                    <p class="" style="color:orange;">bello sillon para una persona, color naranja</p>
-                    <label id="precio">$200.00</label>
-                  </div>
-							</div>
-              <div class="panel panel-default">
-                  <div class="img-special1"><img class="img-special" src="images/home/sillon5.jpg" alt=""  /></div>
-                  <div class="details-spe">
-                    <p class="" style="color:orange;">bello sillon para una persona, color naranja</p>
-                    <label id="precio">$200.00</label>
-                  </div>
-							</div>
+							</div>";
+            } 
+
+
+               
+                ?>	
+						
+						
+              
+              
+              
+              
+              
 						</div><!--/category-products-->
 					</div>
 				</div>
@@ -114,14 +104,7 @@
             <hr style="color: red; border-top: 3px solid #eee;">
 					 <?php
 					 include_once('conexion.php');
-             $producto="";
-$precioCom="";
-$precioVenta="";
-$description="";
-$idCategoria="";
-$idProvedor="";
-$imagen="";
-$contador=0;
+             
 $sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen` ";
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
@@ -144,7 +127,7 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 								<div class='choose'>
 									<ul class='nav nav-pills nav-justified'>
                     <li class='añadir'><a href='#' style='color:white;'>Añadir a la Cesta</a></li>
-										<li class='detalles'><a href='#' style='color:black;'></i>Detalles</a></li>
+										<li class='detalles'><a href='consultaDatellaProducto.php?idProducto=".$row['id_producto']."' style='color:black;'></i>Detalles</a></li>
 									</ul>
 								</div>
 							</div>
@@ -158,19 +141,7 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 
 
 					</div><!--features_items-->
-<!--
-					<div class="category-tab"><!--category-tab-
-						<div class="col-sm-12">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
-								<li><a href="#blazers" data-toggle="tab">Blazers</a></li>
-								<li><a href="#sunglass" data-toggle="tab">Sunglass</a></li>
-								<li><a href="#kids" data-toggle="tab">Kids</a></li>
-								<li><a href="#poloshirt" data-toggle="tab">Polo shirt</a></li>
-							</ul>
-						</div>
-						-->
-					</div><!--/category-tab-->
+
 				</div>
 			</div>
 		</div>
