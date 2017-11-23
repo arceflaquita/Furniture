@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +30,7 @@
 
 <body>
   <header id="header"><!--header-->
-    <?php include_once('header.php'); ?>
+    <?php include_once('headeradmin.php'); ?>
   </header><!--/header-->
 	<section id="form"><!--form-->
 		<div class="container">

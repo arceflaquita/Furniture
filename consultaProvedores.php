@@ -6,7 +6,7 @@ $resultado="<div class='row'>
          <h1>Provedores</h1>
             <div class='panel-heading' style='text-align:right;'>
            
-                <a class='btn btn-success' title='Nuevo' href='newProducto.php'>
+                <a class='btn btn-success' title='Nuevo' href='newProvedor.php'>
                         <span class='glyphicon glyphicon-plus-sign'> Agregar</span>
                 </a>
             </div>

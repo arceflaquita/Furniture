@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>Home | Furniture</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -58,7 +58,7 @@
       </div><!--/header-bottom-->
       <?php include_once('slider.php'); ?>
 			<div class="row">
-				<div class="col-3">
+				<div class="col-3" style="margin-top: 5px;">
 					<div class="left-sidebar">
 						<h2>Especiales</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
@@ -111,154 +111,51 @@
 				<div class=" padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Nuevos Productos en Septiembre</h2>
-            <hr style="color: red;">
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img src="images/home/sillon6.jpg" alt="" />
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-                      <p style="color:gray;">So, it is natural that is sphere is one of the most popular ones and is really hard to offer co...</p>
+            <hr style="color: red; border-top: 3px solid #eee;">
+					 <?php
+					 include_once('conexion.php');
+             $producto="";
+$precioCom="";
+$precioVenta="";
+$description="";
+$idCategoria="";
+$idProvedor="";
+$imagen="";
+$contador=0;
+$sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen` ";
+$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+            while($row=$result->fetch_assoc()){
+            echo "<div class='col-sm-4'>
+							<div class='product-image-wrapper'>
+								<div class='single-products'>
+										<div class='productinfo text-center'>
+											<img src='files/".$row['imagen']."' alt='' />
+											<h2>$".$row['precio_venta']."</h2>
+											<p>".$row['producto']."</p>
+                      <p style='color:gray;'>".$row['descripcion']."</p>
 										</div>
-										<div class="product-overlay">
-											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
+										<div class='product-overlay'>
+											<div class='overlay-content'>
+												<h2>$".$row['precio_venta']."</h2>
+												<p>".$row['producto']."</p>
 											</div>
 										</div>
 								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-                    <li class="añadir"><a href="#" style="color:white;">Añadir a la Cesta</a></li>
-										<li class="detalles"><a href="#" style="color:black;"></i>Detalles</a></li>
+								<div class='choose'>
+									<ul class='nav nav-pills nav-justified'>
+                    <li class='añadir'><a href='#' style='color:white;'>Añadir a la Cesta</a></li>
+										<li class='detalles'><a href='#' style='color:black;'></i>Detalles</a></li>
 									</ul>
 								</div>
 							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/sillon7.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-                    <p style="color:gray;">So, it is natural that is sphere is one of the most popular ones and is really hard to offer co...</p>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-                    <li class="añadir"><a href="#" style="color:white;">Añadir a la Cesta</a></li>
-										<li class="detalles"><a href="#" style="color:black;"></i>Detalles</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/sillon8.png" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-                    <p style="color:gray;">So, it is natural that is sphere is one of the most popular ones and is really hard to offer co...</p>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-                    <li class="añadir"><a href="#" style="color:white;">Añadir a la Cesta</a></li>
-										<li class="detalles"><a href="#" style="color:black;"></i>Detalles</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/sillon9.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-                    <p style="color:gray;">So, it is natural that is sphere is one of the most popular ones and is really hard to offer co...</p>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-										</div>
-									</div>
-									<img src="images/home/new.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-                    <li class="añadir"><a href="#" style="color:white;">Añadir a la Cesta</a></li>
-										<li class="detalles"><a href="#" style="color:black;"></i>Detalles</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/sillon11.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-                    <p style="color:gray;">So, it is natural that is sphere is one of the most popular ones and is really hard to offer co...</p>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img src="images/home/sale.png" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-                    <li class="añadir"><a href="#" style="color:white;">Añadir a la Cesta</a></li>
-										<li class="detalles"><a href="#" style="color:black;"></i>Detalles</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product6.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-                    <p style="color:gray;">So, it is natural that is sphere is one of the most popular ones and is really hard to offer co...</p>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li class="añadir"><a href="#" style="color:white;">Añadir a la Cesta</a></li>
-										<li class="detalles"><a href="#" style="color:black;"></i>Detalles</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
+						</div>";
+            } 
+
+
+               
+                ?>	
+
+
 
 					</div><!--features_items-->
 <!--

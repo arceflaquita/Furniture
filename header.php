@@ -13,7 +13,7 @@
         </div>
         <div class="contactinfo">
           <ul class="nav navbar-nav collapse navbar-collapse">
-            <li><a href="index.html" class="active">INICIO</a></li>
+            <li><a href="index.php" class="active">INICIO</a></li>
             <li class="dropdown"><a href="#">NUEVO<i class="fa fa-angle-down"></i></a></li>
             <li class="dropdown"><a href="#">DESTACADOS<i class="fa fa-angle-down"></i></a></li>
             <li><a href="404.html">MÁS VENDIDOS</a></li>
@@ -22,6 +22,7 @@
             <li><a href="contact-us.html">NUEVO</a></li>
             <li><a href="contact-us.html">COMENTARIOS</a></li>
             <li><a href="contact-us.html">CONTACTOS</a></li>
+            <li><a href="login.php" class="active">LOGIN</a></li>
             <div class="col-sm-6 username">
               <a href="logout.php">Salir</a>
             </div>

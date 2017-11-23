@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +41,7 @@ $description="";
 $idCategoria="";
 $idProvedor="";
 $imagen="";
-$sql="SELECT * FROM pv_imagen, pv_producto WHERE pv_producto.`id_producto`=".$idProducto;
+$sql="SELECT * FROM pv_imagen, pv_producto WHERE pv_producto.`id_producto`=".$idProducto."'group by pv_imagen.`id_imagen`';
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
             $producto=$row['producto'];

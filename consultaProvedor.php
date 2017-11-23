@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +78,7 @@
  $resulta = $conn->query($sql) or die("error: " . mysqli_error($conn));
  while($row=$resulta->fetch_assoc()){
  	if($idMunicipio=$row['id_municipio']){
- 		$resultadoMunicipio.=" <option value='".$row['id_municipio']."' selected>".$row['municipio']."</option>";
+ 		$resultadoMunicipio.=" <option value='".$row['id_municipio']."' selected >".$row['municipio']."</option>";
  	}else{
  		$resultadoMunicipio.=" <option value='".$row['id_municipio']."' >".$row['municipio']."</option>";
  	}

@@ -10,7 +10,7 @@ if($server) {
   $host = 'localhost';
   $user = 'root';
   $pw = '';
-  $db = 'furniture';
+  $db = 'alumndb18';
 }
 
 $conn = new mysqli($host, $user, $pw, $db);

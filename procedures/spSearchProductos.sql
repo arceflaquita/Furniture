@@ -6,7 +6,7 @@ CREATE PROCEDURE searchProductos()
 
 BEGIN
 
-SELECT * FROM pv_imagen, pv_producto;
+SELECT * FROM pv_imagen, pv_producto group by pv_imagen.`id_imagen`;
 
 END $$
 DELIMITER ;

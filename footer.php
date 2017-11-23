@@ -1,5 +1,5 @@
 
-<div class="footer-widget">
+
   <div class="container">
     <div class="row">
       <div class="col-sm-2">
@@ -54,4 +54,4 @@
       <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
     </div>
   </div>
-</div>
+

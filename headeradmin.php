@@ -45,7 +45,9 @@
         </div>
         <div class="mainmenu pull-left">
           <ul class="nav navbar-nav collapse navbar-collapse">
-            <li><a href="queryCustomers.php" class="active">C L I E N T E S</a></li>
+            <li><a href="queryCustomers.php" class="active">CLIENTES</a></li>
+             <li><a href="searchProducto.php" class="active">PRODUCTOS</a></li>
+              <li><a href="searchProvedor.php" class="active">PROVEDORES</a></li>
             <li class="dropdown"><a href="#">LIVING ROOM<i class="fa fa-angle-down"></i></a></li>
             <li class="dropdown"><a href="#">DINING ROOM<i class="fa fa-angle-down"></i></a></li>
             <li><a href="404.html">KITCHEN</a></li>

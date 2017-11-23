@@ -63,7 +63,7 @@
         <table width="600px">
           <tr>
             <td><label for="nombre_contacto">Nombre</label><span style="color:red;">&nbsp;*</span></td>
-            <td><input type='text' name='txtnombre_contacto' value="<?php echo $row['nombre_contacto']; ?>" required/></td>
+            <td><input type='text' name='txtnombre_contacto' value="<?php echo $row['nombre_cliente']; ?>" required/></td>
           </tr>
           <tr>
             <td><label for="ap_paterno_cliente">Apellido paterno</label><span style="color:red;">&nbsp;*</span></td>
