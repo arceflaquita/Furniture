@@ -9,7 +9,7 @@ CREATE PROCEDURE spCheckUser(
 
 BEGIN
 
-SELECT id_categoria, email, nom_user
+SELECT id_categoria, email, nom_user,id_cliente
 FROM pv_usuario
 WHERE email = _email
 AND password = _password;

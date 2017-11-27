@@ -52,7 +52,13 @@
       <div class="col-sm-8">
         <div class="shop-menu pull-right">
           <ul class="nav navbar-nav">
-            <li><a href="cart.php" style="color:orange;"><i class="fa fa-shopping-cart"></i> Carrito: <span style="color:gray;">Carrito de Compras <label style="color:black;"> 0 productos</label></span> </a></li>
+            <li><a href="carritodecompras.php" style="color:orange;"><i class="fa fa-shopping-cart"></i> Carrito: <span style="color:gray;">Carrito de Compras <label style="color:black;"> <?php
+             if(isset($_SESSION['carrito'])){
+                 echo count($_SESSION['carrito']);
+             }else{
+                echo 0;
+             }
+             ?></label></span> </a></li>
             <li>
             <div class="btn-group pull-right">
               <div class="btn-group">

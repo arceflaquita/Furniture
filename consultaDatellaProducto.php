@@ -112,7 +112,7 @@ $resulte = $conn->query($sql) or die("error: " . mysqli_error($conn));
              <h2><?php echo 'Descripción: '.$description ?></h2>
              <h2><?php echo 'Precio: $'.$precioVenta ?></h2>
               </div>
-              <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span><?php echo utf8_decode('AÃ±adir a la Cesta') ?></button>
+              <a class="btn btn-warning btn-sm" href="carritodecompras.php?id=<?php echo $idProducto?>" ><span class="glyphicon glyphicon-plus-sign"></span><?php echo utf8_decode(' AÃ±adir a la Cesta') ?></a>
               
 
 

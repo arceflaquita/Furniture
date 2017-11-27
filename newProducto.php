@@ -53,7 +53,7 @@
             </br>
              <div>
              <td>Imagen:</td>
-            <td><input type="file" name="archivo" id="archivo" required="required" size="35" accept="image/png, .jpeg, .jpg, image/gif" ><input type="hidden" name="action" value="upload" ></div>
+            <td><input type="file" name="archivo" id="archivo"  size="35" accept="image/png, .jpeg, .jpg, image/gif" ><input type="hidden" name="action" value="upload" ></div>
             </div>
             <div class="col-md-5">
           

@@ -25,6 +25,7 @@ if(verificar_login($email,$p_hash,$resp) == 1)
 {
   $_SESSION['email'] = $email;
   $_SESSION['id_categoria'] = $resp['id_categoria'];
+  $_SESSION['id_cliente']=$resp['id_cliente'];
   $_SESSION['name'] = $resp['nom_user'];
   $_SESSION['error_login'] = "";
   if($resp['id_categoria'] == '1' || $resp['id_categoria'] == '3'){

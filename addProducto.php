@@ -25,12 +25,14 @@ if ($_POST['action'] == 'upload') {
                     $status="Error al subir el archivo";
                 }
             }else{
-                $status="No hay archivo seleccionado";
+               $imagen="sinImagen.jpg";
+
+
             }
         }
 
 
-$sql = "CALL addArticulo('$producto', $precioCompra,$precioVenta, '$descripcion', $idCategoria,$idProvedor,'".$prefijo . "_" . $archivo."');";
+$sql = "CALL addArticulo('$producto', $precioCompra,$precioVenta, '$descripcion', $idCategoria,$idProvedor,'$imagen');";
 
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 

@@ -15,7 +15,7 @@
   	<link href="css/main.css" rel="stylesheet">
   	<link href="css/responsive.css" rel="stylesheet">
 
-    <link href="css/furniture.css" rel="stylesheet">
+   
 
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -61,6 +61,7 @@
 				<div class="col-3" style="margin-top: 5px;">
 					<div class="left-sidebar">
 						<h2>Especiales</h2>
+            <div class="panel-group category-products" id="accordian">
 						<?php
 					 include_once('conexion.php');
              $producto="";
@@ -71,14 +72,14 @@ $idCategoria="";
 $idProvedor="";
 $imagen="";
 $contador=0;
-$sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen` limit 6 ";
+$sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen`  ";
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
-            echo "<div class='panel-group category-products' id='accordian'><!--category-productsr-->
-							<div class='panel panel-default'>
-                  <div class='img-special1'><img class='img-special' src='files/".$row['imagen']."' alt=''  /></div>
+            echo "<div class='panel panel-default'>
+                  <div class='img-special1'><a href='consultaDatellaProducto.php?idProducto=".$row['id_producto']."'><img class='img-special' src='files/".$row['imagen']."' alt=''  /></a></div>
                   <div class='details-spe'>
-                    <p class='' style='color:orange;'>".$row['producto']."</p>
+                    <a class='' style='color:orange;' href='consultaDatellaProducto.php?idProducto=".$row['id_producto']."'>".$row['producto']."</a>
+                    </br>
                     <label id='precio'>$".$row['precio_venta']."</label>
                   </div>
 							</div>";
@@ -112,7 +113,7 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 							<div class='product-image-wrapper'>
 								<div class='single-products'>
 										<div class='productinfo text-center'>
-											<img src='files/".$row['imagen']."' alt='' />
+											<img src='files/".$row['imagen']."' style='height: 139px;'  />
 											<h2>$".$row['precio_venta']."</h2>
 											<p>".$row['producto']."</p>
                       <p style='color:gray;'>".$row['descripcion']."</p>
@@ -126,7 +127,7 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 								</div>
 								<div class='choose'>
 									<ul class='nav nav-pills nav-justified'>
-                    <li class='añadir'><a href='#' style='color:white;'>Añadir a la Cesta</a></li>
+                    <li class='añadir'><a href='carritodecompras.php?id=".$row['id_producto']."' style='color:white;'>Añadir a la Cesta</a></li>
 										<li class='detalles'><a href='consultaDatellaProducto.php?idProducto=".$row['id_producto']."' style='color:black;'></i>Detalles</a></li>
 									</ul>
 								</div>

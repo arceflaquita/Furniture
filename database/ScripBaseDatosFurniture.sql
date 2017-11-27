@@ -291,7 +291,7 @@ ENGINE = InnoDB;
 -- Table `furniture`.`PV_IMAGEN`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `furniture`.`PV_IMAGEN` (
-  `id_imagen` INT NOT NULL,
+  `id_imagen` INT NOT NULL AUTO_INCREMENT,
   `imagen` VARCHAR(300) NULL,
   `id_producto` INT NOT NULL,
   PRIMARY KEY (`id_imagen`),
