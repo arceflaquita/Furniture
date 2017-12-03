@@ -4,7 +4,6 @@ DELIMITER $$
 
 CREATE PROCEDURE searProducto(
   IN _id_producto int
- 
 )
 
 BEGIN

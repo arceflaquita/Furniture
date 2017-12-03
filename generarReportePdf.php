@@ -3,7 +3,7 @@
 ?>
 
    <?php
-   
+
 session_start();
 
    function pdf(){
@@ -28,29 +28,29 @@ session_start();
 			$total=0;
 			if(isset($_SESSION['carrito'])){
 			$datos=$_SESSION['carrito'];
-			
+
 			$total=0;
 			for($i=0;$i<count($datos);$i++){
-				
+
 				 $print=$print. "
 						<tbody>
-						
+
 						<tr>
 							<td class='cart_product'>
 								<a href=''><img src='./files/".$datos[$i]['Imagen']."' style='width: 15%;'></a>
 							</td>
 							<td class='cart_description'>
 								<h4><a href=''>".$datos[$i]['Nombre']."</a></h4>
-								
+
 							</td>
 							<td class='cart_price'>
 								<p>$".$datos[$i]['Precio']."</p>
 							</td>
 							<td class='cart_quantity'>
 								<div class='cart_quantity_button'>
-									
+
 									<input class='cart_quantity_input' type='text' value='".$datos[$i]['Cantidad']."'>
-									
+
 								</div>
 							</td>
 							<td class='cart_total'>
@@ -61,20 +61,12 @@ session_start();
 							</td>
 						</tr>
 							</tbody>
-					
+
 					";
-				
+
 			}
 		}
 				 $print=$print. "</table></div></div>";
-			
-			
-
-				
-				
-					
-		
-
 
          $total=0;
 
@@ -86,18 +78,18 @@ include_once('conexion.php');
 $sql="SELECT * FROM `pv_cliente`,`pv_estado`,`pv_municipio`,`pv_colonia` WHERE id_cliente=".$idUsuario;
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
-             
-      
-            
+
+
+
 
  $print=$print. "
 	</section> <!--/#cart_items-->
 
 	<section id='do_action'>
 		<div class='container'>
-			
+
 			<div class='row'>
-				
+
 				<div class='col-sm-7 '>
 					<div class='total_area'>
 						<ul>
@@ -109,7 +101,7 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 							<li>Piezas: <span>".count($datos)."</span></li>
 							<li>Total: <span> $".$total."</span></li>
 						</ul>
-							
+
 					</div>
 				</div>
 			</div>

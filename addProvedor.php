@@ -1,6 +1,6 @@
 <?php
 
- include_once('conexion.php');
+include_once('conexion.php');
 $provedor=$_POST['txtProvedor'];
 $contacto=$_POST['txtContacto'];
 $telefono=$_POST['txtTelefono'];
@@ -13,16 +13,9 @@ $municipio=$_POST['municipio'];
 $colonia=$_POST['colonia'];
 $codigoPostal=$_POST['codigoPostal'];
 
-
-
-$sql = "CALL addProvedor('$provedor','$contacto','$telefono','$correo','$calle',$numExterior,$numInterior,$estado,$municipio,$colonia,$codigoPostal);";
+$sql = "CALL addProvedor('$provedor','$contacto','$telefono','$correo','$calle',$numExterior,$numInterior,$estado,$municipio,'$colonia',$codigoPostal);";
 
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
-
-
-
-
-
 
 header("Location: searchProvedor.php");
 

@@ -34,67 +34,59 @@
   </header><!--/header-->
   <section id="form"><!--form-->
     <div class="container">
-  
+
         <div class="col-md-10">
           <div class="signup-form"><!--sign up form-->
             <h2>Nuevo Provedor</h2>
             <form action="addProvedor.php" method="post">
               <div class="col-md-5">
               <input type="text" name="txtProvedor"  class="form-control" placeholder="Nombre del Provedor" required="required"/>
-               
+
               <input type="text" name="txtContacto" class="form-control" placeholder="contacto" required="required"/>
-            
+
               <input type="tel" name="txtTelefono" class="form-control" placeholder="Telefono" required="required"/>
 
               <input type="email" name="txtCorreo" class="form-control" placeholder="Correo" required="required"/>
 
               <input type="text" name="txtCalle" class="form-control" placeholder="Calle" required="required"/>
               <div class="col-md-7">
-                <input type="text" name="txtNumExterior" class="form-control" placeholder="Numero Exterio" required="required"/>
+                <input type="text" name="txtNumExterior" class="form-control" placeholder="Numero Exterior" required="required"/>
                 <input type="text" name="txtNumInterior" class="form-control" placeholder="Numero Interior" required="required"/>
               </div>
-          
+
             </div>
             <div class="col-md-5">
-          
-            
+
+
               <h5>Estado</h5>
               <select name="estado" id="estado">
-                
+
               </select>
-              
+
               <h5>Municipio</h5>
-              <select name="municipio" id="municipio">
+              <select name="municipio" id="municipio" />
                 <option value="0">Seleccione un Municipio</option>
               </select>
-              
 
-              
               <h5>Colonia</h5>
-              <select name="colonia" id="colonia">
-                <option value="0">Seleccione una Colonia</option>
-              </select>
-              
+              <input type="text"  name="colonia" id="colonia" class="form-control" placeholder="Colonia" required="required"/>
 
-             
               <h5>Codigo Postal</h5>
-              <select name="codigoPostal" id="codigoPostal">
-                <option value="0">Seleccione un codigo Postal</option>
-              </select>
-              
-            
+              <input type="text"  name="codigoPostal" id="codigoPostal"  class="form-control" placeholder="C.P." required="required"/>
+
+
 
               </br></br>
-             
+
               </div>
               <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> AGREGAR</button>
-              
+
 
 
             </form>
           </div><!--/sign up form-->
         </div>
-      
+
     </div>
   </section><!--/form-->
 

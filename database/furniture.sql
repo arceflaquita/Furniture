@@ -157,40 +157,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `furniture`.`PV_COLONIA`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `furniture`.`PV_COLONIA` (
-  `id_colonia` INT NOT NULL AUTO_INCREMENT,
-  `colonia` VARCHAR(45) NULL,
-  `id_municipio` INT NOT NULL,
-  PRIMARY KEY (`id_colonia`),
-  INDEX `fk_PV_COLONIA_PV_MUNICIPIO1_idx` (`id_municipio` ASC),
-  CONSTRAINT `fk_PV_COLONIA_PV_MUNICIPIO1`
-    FOREIGN KEY (`id_municipio`)
-    REFERENCES `furniture`.`PV_MUNICIPIO` (`id_municipio`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `furniture`.`PV_CP`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `furniture`.`PV_CP` (
-  `id_cp` INT NOT NULL AUTO_INCREMENT,
-  `cp` INT NULL,
-  `id_colonia` INT NOT NULL,
-  PRIMARY KEY (`id_cp`),
-  INDEX `fk_PV_CP_PV_COLONIA1_idx` (`id_colonia` ASC),
-  CONSTRAINT `fk_PV_CP_PV_COLONIA1`
-    FOREIGN KEY (`id_colonia`)
-    REFERENCES `furniture`.`PV_COLONIA` (`id_colonia`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `furniture`.`PV_PROVEDOR`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `furniture`.`PV_PROVEDOR` (
@@ -204,13 +170,11 @@ CREATE TABLE IF NOT EXISTS `furniture`.`PV_PROVEDOR` (
   `no_interior` INT NULL,
   `id_estado` INT NOT NULL,
   `id_municipio` INT NOT NULL,
-  `id_colonia` INT NOT NULL,
+  `id_colonia` VARCHAR(45) NULL,
   `id_cp` INT NOT NULL,
   PRIMARY KEY (`id_provedor`),
   INDEX `fk_PV_PROVEDOR_PV_ESTADO1_idx` (`id_estado` ASC),
   INDEX `fk_PV_PROVEDOR_PV_MUNICIPIO1_idx` (`id_municipio` ASC),
-  INDEX `fk_PV_PROVEDOR_PV_COLONIA1_idx` (`id_colonia` ASC),
-  INDEX `fk_PV_PROVEDOR_PV_CP1_idx` (`id_cp` ASC),
   CONSTRAINT `fk_PV_PROVEDOR_PV_ESTADO1`
     FOREIGN KEY (`id_estado`)
     REFERENCES `furniture`.`PV_ESTADO` (`id_estado`)
@@ -219,16 +183,6 @@ CREATE TABLE IF NOT EXISTS `furniture`.`PV_PROVEDOR` (
   CONSTRAINT `fk_PV_PROVEDOR_PV_MUNICIPIO1`
     FOREIGN KEY (`id_municipio`)
     REFERENCES `furniture`.`PV_MUNICIPIO` (`id_municipio`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_PV_PROVEDOR_PV_COLONIA1`
-    FOREIGN KEY (`id_colonia`)
-    REFERENCES `furniture`.`PV_COLONIA` (`id_colonia`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_PV_PROVEDOR_PV_CP1`
-    FOREIGN KEY (`id_cp`)
-    REFERENCES `furniture`.`PV_CP` (`id_cp`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -242,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `furniture`.`PV_PRODUCTO` (
   `producto` VARCHAR(45) NULL,
   `precio_compra` FLOAT NULL,
   `precio_venta` FLOAT NULL,
-  `descripcion` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(255) NULL,
   `id_categoria` INT NOT NULL,
   `id_provedor` INT NOT NULL,
   PRIMARY KEY (`id_producto`),
@@ -314,4 +268,124 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 insert into pv_categoria_usuario (categoria) values ('administrador');
 insert into pv_categoria_usuario (categoria) values ('cliente');
 insert into pv_categoria_usuario (categoria) values ('secretaria');
-insert into pv_usuario (nom_user,password,id_categoria, email) values ('admin','maNFFVN3iSshg',1, 'admin@furniture.com');
+insert into pv_usuario (nom_user,password,id_categoria, email) values ('admin','maNFFVN3iSshg',1, 'admin@furniture.com'); --admin23
+insert into pv_usuario (nom_user,password,id_categoria, email) values ('alondra','mav6vjSDWNY7o',2, 'alondra@gmail.com');  --1234
+
+  --PV_CATEGORIA
+  -- -----------------------------------------------------
+
+  insert into PV_CATEGORIA values(null, "Dormitorio");
+  insert into PV_CATEGORIA values(null, "Sala");
+  insert into PV_CATEGORIA values(null, "Comedor");
+  insert into PV_CATEGORIA values(null, "Cocina");
+  insert into PV_CATEGORIA values(null, "Pieles");
+
+  --PV_ESTADO`
+  -- -----------------------------------------------------
+  insert into PV_ESTADO values(null, "AGUAS CALIENTES");
+  insert into PV_ESTADO values(null, "BAJA CALIFORNIA");
+  insert into PV_ESTADO values(null, "BAJA CALIFORNIA SUR");
+  insert into PV_ESTADO values(null, "CAMPECHE");
+  insert into PV_ESTADO values(null, "CHIAPAS");
+  insert into PV_ESTADO values(null, "CHIHUAHUA");
+  insert into PV_ESTADO values(null, "COAHUILA");
+  insert into PV_ESTADO values(null, "CIUDAD DE MEXICO");
+  insert into PV_ESTADO values(null, "COLIMA");
+  insert into PV_ESTADO values(null, "DURANGO");
+  insert into PV_ESTADO values(null, "GUANAJUATO");
+  insert into PV_ESTADO values(null, "GUERRERO");
+  insert into PV_ESTADO values(null, "HIDALGO");
+  insert into PV_ESTADO values(null, "JALISCO");
+  insert into PV_ESTADO values(null, "MEXICO");
+  insert into PV_ESTADO values(null, "MICHOACAN");
+  insert into PV_ESTADO values(null, "MORELOS");
+  insert into PV_ESTADO values(null, "NAYARIT");
+  insert into PV_ESTADO values(null, "NUEVO LEON");
+  insert into PV_ESTADO values(null, "OAXACA");
+  insert into PV_ESTADO values(null, "PUEBLA");
+  insert into PV_ESTADO values(null, "QUERETARO");
+  insert into PV_ESTADO values(null, "QUINTANA ROO");
+  insert into PV_ESTADO values(null, "SAN LUIS POTOSI");
+  insert into PV_ESTADO values(null, "SINALOA");
+  insert into PV_ESTADO values(null, "SONORA");
+  insert into PV_ESTADO values(null, "TABASCO");
+  insert into PV_ESTADO values(null, "TAMAULIPAS");
+  insert into PV_ESTADO values(null, "TLAXCALA");
+  insert into PV_ESTADO values(null, "VERACRUZ");
+  insert into PV_ESTADO values(null, "YUCATAN");
+  insert into PV_ESTADO values(null, "ZACATECAS");
+
+  -- Table `mydb`.`PV_MUNICIPIO`
+  -- -----------------------------------------------------
+  insert into PV_MUNICIPIO values(null, "ACAMBAY",1);
+  insert into PV_MUNICIPIO values(null, "ACOLMAN",2);
+  insert into PV_MUNICIPIO values(null, "ACULCO",3);
+  insert into PV_MUNICIPIO values(null, "ALMOLOYA DE ALQUISIRAS",4);
+  insert into PV_MUNICIPIO values(null, "ALMOLOYA DE JAUREZ",5);
+  insert into PV_MUNICIPIO values(null, "ALMOLOYA DEL RIO",20);
+  insert into PV_MUNICIPIO values(null, "AMANALCO",3);
+  insert into PV_MUNICIPIO values(null, "AMETEPEC",4);
+  insert into PV_MUNICIPIO values(null, "AMECAMECA",12);
+  insert into PV_MUNICIPIO values(null, "APAXCO",10);
+  insert into PV_MUNICIPIO values(null, "ATENCO",13);
+  insert into PV_MUNICIPIO values(null, "ATIZAPAN",2);
+  insert into PV_MUNICIPIO values(null, "ATIZAPAN DE ZARAGOZA",4);
+  insert into PV_MUNICIPIO values(null, "ATLACOMULCO",9);
+  insert into PV_MUNICIPIO values(null, "ATLAUTLA",8);
+  insert into PV_MUNICIPIO values(null, "AXAPUSCO",7);
+  insert into PV_MUNICIPIO values(null, "AYAPANGO",5);
+  insert into PV_MUNICIPIO values(null, "CALIMAYA",8);
+  insert into PV_MUNICIPIO values(null, "CAPULHUAC",20);
+  insert into PV_MUNICIPIO values(null, "COACALCO DE BERRIOZABAL",26);
+  insert into PV_MUNICIPIO values(null, "COATEPEC HARINAS",16);
+  insert into PV_MUNICIPIO values(null, "COCOTITLAN",13);
+  insert into PV_MUNICIPIO values(null, "COYOTEPEC",10);
+  insert into PV_MUNICIPIO values(null, "CUAUTITLAN",9);
+  insert into PV_MUNICIPIO values(null, "CHALCO",2);
+  insert into PV_MUNICIPIO values(null, "CHAPA DE MOTA",8);
+  insert into PV_MUNICIPIO values(null, "CHAPULTEPEC",4);
+  insert into PV_MUNICIPIO values(null, "CHIAUTLA",11);
+  insert into PV_MUNICIPIO values(null, "CHICOLOAPAN",21);
+  insert into PV_MUNICIPIO values(null, "CHINCONCUAC",13);
+  insert into PV_MUNICIPIO values(null, "CHIMALHUACAN",23);
+  insert into PV_MUNICIPIO values(null, "DONATO GUERRA",30);
+  insert into PV_MUNICIPIO values(null, "ECATEPEC DE MORELOS",31);
+  insert into PV_MUNICIPIO values(null, "ECATZINGO",1);
+  insert into PV_MUNICIPIO values(null, "HUEHUETOCA",3);
+  insert into PV_MUNICIPIO values(null, "HUEYPOXTLA",7);
+  insert into PV_MUNICIPIO values(null, "HUIXQUILUCAN",2);
+  insert into PV_MUNICIPIO values(null, "ISIDRO FABELA",4);
+  insert into PV_MUNICIPIO values(null, "IXTAPALUCA",13);
+  insert into PV_MUNICIPIO values(null, "IXTAPAN DE LA SAL",16);
+  insert into PV_MUNICIPIO values(null, "IXTAPAN DE ORO",18);
+  insert into PV_MUNICIPIO values(null, "IXTLAHUACA",20);
+  insert into PV_MUNICIPIO values(null, "XALATLACO",12);
+  insert into PV_MUNICIPIO values(null, "JALTENCO",15);
+  insert into PV_MUNICIPIO values(null, "JILOTEPEC",18);
+  insert into PV_MUNICIPIO values(null, "JILOTZINGO",10);
+  insert into PV_MUNICIPIO values(null, "JIQUIPILCO",9);
+  insert into PV_MUNICIPIO values(null, "JOCOTITLAN",8);
+  insert into PV_MUNICIPIO values(null, "JOQUINCINGO",5);
+  insert into PV_MUNICIPIO values(null, "JUCHITEPEC",4);
+  insert into PV_MUNICIPIO values(null, "LERMA",25);
+  insert into PV_MUNICIPIO values(null, "MALINALCO",29);
+  insert into PV_MUNICIPIO values(null, "METEPEC",8);
+  insert into PV_MUNICIPIO values(null, "MORELOS",6);
+  insert into PV_MUNICIPIO values(null, "NAUCALPAN DE JUAREZ",5);
+  insert into PV_MUNICIPIO values(null, "NEZAHUALCOYOTL",1);
+  insert into PV_MUNICIPIO values(null, "NEXTLALPAN",1);
+  insert into PV_MUNICIPIO values(null, "NOPALTEPEC",1);
+  insert into PV_MUNICIPIO values(null, "OCOYOACAC",4);
+  insert into PV_MUNICIPIO values(null, "OTUMBA",5);
+  insert into PV_MUNICIPIO values(null, "OZUMBA",11);
+  insert into PV_MUNICIPIO values(null, "SAN MARTIN ",12);
+  insert into PV_MUNICIPIO values(null, "SAN SIMON",28);
+  insert into PV_MUNICIPIO values(null, "SANTO TOMAS",27);
+  insert into PV_MUNICIPIO values(null, "SAN MATEO ATENCO", 25);
+  insert into PV_MUNICIPIO values(null, "TECAMAC",24);
+  insert into PV_MUNICIPIO values(null, "TEOTIHUACAN",23);
+  insert into PV_MUNICIPIO values(null, "TEXCOCO",22);
+  insert into PV_MUNICIPIO values(null, "TEZOYUCA",21);
+  insert into PV_MUNICIPIO values(null, "TOLUCA",20);
+  insert into PV_MUNICIPIO values(null, "ZUMPANGO",19);
+  insert into PV_MUNICIPIO values(null, "TONANITLA",8);

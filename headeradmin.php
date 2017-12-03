@@ -3,17 +3,19 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="contactinfo">
+          <ul class="nav navbar-nav collapse navbar-collapse">
+            <li>
+            <?php
+            if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
+              echo '<a href="#" class="active">';
+              echo strtoupper($_SESSION['name']);
+              echo '</a>';
+            }
+            ?>
+            </li>
+            <li><a href="logout.php">SALIR</a></li>
+          </ul>
         </div>
-      </div>
-      <div class="col-sm-6">
-        <?php
-        if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
-            echo '<div class="username">' . $_SESSION['name'] . '</div>';
-        }
-        ?>
-      </div>
-      <div class="username">
-        <a href="logout.php">Salir</a>
       </div>
     </div>
   </div>
@@ -46,12 +48,8 @@
         <div class="mainmenu pull-left">
           <ul class="nav navbar-nav collapse navbar-collapse">
             <li><a href="queryCustomers.php" class="active">CLIENTES</a></li>
-             <li><a href="searchProducto.php" class="active">PRODUCTOS</a></li>
-              <li><a href="searchProvedor.php" class="active">PROVEDORES</a></li>
-            <li class="dropdown"><a href="#">LIVING ROOM<i class="fa fa-angle-down"></i></a></li>
-            <li class="dropdown"><a href="#">DINING ROOM<i class="fa fa-angle-down"></i></a></li>
-            <li><a href="404.html">KITCHEN</a></li>
-            <li><a href="contact-us.html">LEATHER SECTIONALS</a></li>
+            <li><a href="searchProducto.php" class="active">PRODUCTOS</a></li>
+            <li><a href="searchProvedor.php" class="active">PROVEDORES</a></li>
           </ul>
         </div>
       </div>

@@ -23,7 +23,5 @@ UPDATE `pv_provedor` SET
  `provedor`=_provedor,`contacto`=_contacto,`telefono`=_telefono,`correo`=_correo,`calle`=_calle,`no_exterior`=_no_exterior,`no_interior`=_no_interior,
  `id_estado`=_id_estado,`id_municipio`=_id_municipio,`id_colonia`=_id_colonia,`id_cp`=_id_cp WHERE `id_provedor`=_id_provedor;
 
-
 END $$
 DELIMITER ;
-

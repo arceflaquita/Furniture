@@ -14,27 +14,17 @@
         <div class="contactinfo">
           <ul class="nav navbar-nav collapse navbar-collapse">
             <li><a href="index.php" class="active">INICIO</a></li>
-            <li class="dropdown"><a href="#">NUEVO<i class="fa fa-angle-down"></i></a></li>
-            <li class="dropdown"><a href="#">DESTACADOS<i class="fa fa-angle-down"></i></a></li>
-            <li><a href="404.html">MÁS VENDIDOS</a></li>
-            <li><a href="contact-us.html">OFERTAS</a></li>
-            <li><a href="contact-us.html">FABRICANTES</a></li>
-            <li><a href="contact-us.html">NUEVO</a></li>
-            <li><a href="contact-us.html">COMENTARIOS</a></li>
-            <li><a href="contact-us.html">CONTACTOS</a></li>
+            <li><a href="contact-us.php" class="active">CONTACTO</a></li>
             <li><a href="login.php" class="active">LOGIN</a></li>
-            <div class="col-sm-6 username">
-              <a href="logout.php">Salir</a>
-            </div>
-          </ul>
-          <div class="col-sm-6 username">
+            <li>
             <?php
             if(isset($_SESSION['name']) && $_SESSION['name'] != ''){
-                echo '<a href="profileCustomer.php"><img src="images/admin/user.png" width="20px">&nbsp;Mi cuenta</a>';
+                echo '<a href="profileCustomer.php"><img src="images/admin/user.png" width="20px">&nbsp;MI CUENTA</a>';
             }
             ?>
-          </div>
-
+            </li>
+            <li><a href="logout.php">SALIR</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -77,7 +67,7 @@
         </div>
       </div>
       <div class="search_box pull-right">
-        <input type="text" placeholder="Busqueda del sitio"/>
+        <input id='txtSearch' type="text" placeholder="Buscar productos"/>
       </div>
     </div>
   </div>

@@ -9,12 +9,7 @@ CREATE PROCEDURE addVentaArticulo(
 
 BEGIN
 
-
-
 INSERT INTO `pv_venta`(`feha`, `monto`, `id_cliente`, `id_proceso`) VALUES (curdate(),_monto,_id_cliente,1);
-
-
-
 
 END $$
 DELIMITER ;

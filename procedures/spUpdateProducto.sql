@@ -6,7 +6,7 @@ CREATE PROCEDURE updateProducto(
   IN _producto varchar(255),
   IN _precio_compra float,
   IN _precio_venta float,
-  IN _descripcion varchar(45),
+  IN _descripcion varchar(255),
   IN _id_categoria int,
   IN _id_provedor int,
   IN _id_producto int,
@@ -16,7 +16,6 @@ CREATE PROCEDURE updateProducto(
 BEGIN
 
 UPDATE `pv_imagen` SET `imagen`=_imagen WHERE `id_producto`=_id_producto;
-
 
 UPDATE `pv_producto` SET
  `producto`=_producto,`precio_compra`=_precio_compra,`precio_venta`=_precio_venta,

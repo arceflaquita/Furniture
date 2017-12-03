@@ -12,11 +12,8 @@ BEGIN
 
  Select @folio := max(folio) from pv_venta ;
 
-INSERT INTO `pv_detalle_venta`( `fecha`, `precio_venta`, `cantidad`, `folio`, `id_producto`) 
+INSERT INTO `pv_detalle_venta`( `fecha`, `precio_venta`, `cantidad`, `folio`, `id_producto`)
 VALUES (curdate(),_precio_venta,_cantidad,@folio,_id_producto);
-
-
-
 
 END $$
 DELIMITER ;

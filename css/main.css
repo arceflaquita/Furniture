@@ -910,7 +910,7 @@ position: relative;
 
 .productinfo img{
   width: 100%;
-  
+
 }
 
 .productinfo{
@@ -1454,8 +1454,8 @@ position: relative;
 
 #form {
   display: block;
-  margin-bottom: 185px;
-  margin-top: 185px;
+  margin-bottom: 50px;
+  margin-top: 25px;
   overflow: hidden;
 }
 

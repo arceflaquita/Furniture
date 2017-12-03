@@ -18,13 +18,8 @@ CREATE PROCEDURE addProvedor(
 
 BEGIN
 
-
-
 INSERT INTO `pv_provedor`( `provedor`, `contacto`, `telefono`, `correo`, `calle`, `no_exterior`, `no_interior`, `id_estado`, `id_municipio`, `id_colonia`, `id_cp`) VALUES
  (_provedor,_contacto,_telefono,_correo,_calle,_no_exterior,_no_interior,_id_estado,_id_municipio,_id_colonia,_id_cp);
 
-
-
 END $$
 DELIMITER ;
-

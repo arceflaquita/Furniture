@@ -15,8 +15,6 @@
   	<link href="css/main.css" rel="stylesheet">
   	<link href="css/responsive.css" rel="stylesheet">
 
-   
-
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -38,42 +36,39 @@
 	</section><!--/slider-->
 
 	<section>
-		<div class="container" style="background:white; border-radius:15px;">
+		<div id="container" class="container" style="background:white; border-radius:15px;">
       <div class="header-top"><!--header-bottom-->
         <div class="container">
           <div class="row">
             <div class="col-sm-9">
-              <div class="mainmenu">
-                <ul class="nav navbar-nav collapse navbar-collapse">
-                  <li><a href="index.html" class="active">BEDROOM</a></li>
-                  <li class="dropdown"><a href="#">LIVING ROOM<i class="fa fa-angle-down"></i></a></li>
-                  <li class="dropdown"><a href="#">DINING ROOM<i class="fa fa-angle-down"></i></a></li>
-                  <li><a href="404.html">KITCHEN</a></li>
-                  <li><a href="contact-us.html">LEATHER SECTIONALS</a></li>
-                </ul>
+              <div class="mainmenu" id="mainmenu">
               </div>
             </div>
           </div>
         </div>
       </div><!--/header-bottom-->
+
+      <div id="search">
+      </div>
+      
       <?php include_once('slider.php'); ?>
 			<div class="row">
-				<div class="col-3" style="margin-top: 5px;">
+				<div id="slider" class="col-3" style="margin-top: 5px;">
 					<div class="left-sidebar">
 						<h2>Especiales</h2>
             <div class="panel-group category-products" id="accordian">
 						<?php
 					 include_once('conexion.php');
              $producto="";
-$precioCom="";
-$precioVenta="";
-$description="";
-$idCategoria="";
-$idProvedor="";
-$imagen="";
-$contador=0;
-$sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen`  ";
-$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+            $precioCom="";
+            $precioVenta="";
+            $description="";
+            $idCategoria="";
+            $idProvedor="";
+            $imagen="";
+            $contador=0;
+            $sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen`  ";
+            $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
             echo "<div class='panel panel-default'>
                   <div class='img-special1'><a href='consultaDatellaProducto.php?idProducto=".$row['id_producto']."'><img class='img-special' src='files/".$row['imagen']."' alt=''  /></a></div>
@@ -83,31 +78,21 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
                     <label id='precio'>$".$row['precio_venta']."</label>
                   </div>
 							</div>";
-            } 
+            }
+                ?>
 
-
-               
-                ?>	
-						
-						
-              
-              
-              
-              
-              
 						</div><!--/category-products-->
 					</div>
 				</div>
 
-				<div class=" padding-right">
+				<div id="products" class="padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Nuevos Productos en Septiembre</h2>
+						<h2 class="title text-center">Nuevos Productos en Diciembre</h2>
             <hr style="color: red; border-top: 3px solid #eee;">
-					 <?php
-					 include_once('conexion.php');
-             
-$sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen` ";
-$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+					  <?php
+					  include_once('conexion.php');
+            $sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen` ";
+            $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
             echo "<div class='col-sm-4'>
 							<div class='product-image-wrapper'>
@@ -133,14 +118,8 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 								</div>
 							</div>
 						</div>";
-            } 
-
-
-               
-                ?>	
-
-
-
+            }
+            ?>
 					</div><!--features_items-->
 
 				</div>
@@ -160,5 +139,6 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 	<script src="js/price-range.js"></script>
   <script src="js/jquery.prettyPhoto.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>

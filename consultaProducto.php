@@ -41,7 +41,9 @@ $description="";
 $idCategoria="";
 $idProvedor="";
 $imagen="";
-$sql="SELECT * FROM pv_imagen, pv_producto WHERE pv_producto.`id_producto`=".$idProducto."'group by pv_imagen.`id_imagen`';
+$sql="select p.id_producto, producto, precio_venta, descripcion, imagen, precio_compra, id_categoria, id_provedor
+from pv_producto p inner join pv_imagen i on p.id_producto = i.id_producto
+where p.id_producto=".$idProducto;
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
             $producto=$row['producto'];
@@ -49,13 +51,13 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             $precioVenta=$row['precio_venta'];
             $description=$row['descripcion'];
             $idCategoria=$row['id_categoria'];
-            $idProvedor=$row['id_provedor'];   
+            $idProvedor=$row['id_provedor'];
             $imagen=$row['imagen'];
-            } 
+            }
 
 
 $resultado="";
-              
+
               $sql="select * from pv_categoria";
             $resulta = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$resulta->fetch_assoc()){
@@ -64,7 +66,7 @@ $resultado="";
                }else{
                  $resultado.=" <option value='".$row['id_categoria']."' >".$row['categoria']."</option>";
                }
-            } 
+            }
 
 
 $resultado2="";
@@ -78,16 +80,16 @@ $resulte = $conn->query($sql) or die("error: " . mysqli_error($conn));
                    $resultado2.=" <option value='".$row['id_provedor']."' >".$row['provedor']."</option>";
                   }
 
-            } 
-            
-            
+            }
+
+
           ?>
   <header id="header"><!--header-->
     <?php include_once('header.php'); ?>
   </header><!--/header-->
   <section id="form"><!--form-->
     <div class="container">
-  
+
         <div class="col-md-10">
           <div class="signup-form"><!--sign up form-->
             <h2>Actualizar Producto</h2>
@@ -108,7 +110,7 @@ $resulte = $conn->query($sql) or die("error: " . mysqli_error($conn));
           </br>
             <div class="input-group" >
             <td>Imagen Guardada:</td>
-            
+
             <?php echo "<img src='files/".$imagen."' style='width: 30%'>" ?>
             </div>
              </br>
@@ -119,7 +121,7 @@ $resulte = $conn->query($sql) or die("error: " . mysqli_error($conn));
 
             </div>
             <div class="col-md-5">
-          
+
               <select name='comboCategoria' id='comboCategoria' required='required'  >
                   <option value='' selected="selected">Selecciona una Categoria</option>
 
@@ -135,16 +137,16 @@ $resulte = $conn->query($sql) or die("error: " . mysqli_error($conn));
 
               </br></br>
              <textarea class="form-control" name="txtDescripcion" placeholder="Descripción" rows="5" required="required" ><?php echo $description?></textarea>
-             
+
               </div>
-              <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> AGREGAR</button>
-              
+              <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> ACTUALIZAR</button>
+
 
 
             </form>
           </div><!--/sign up form-->
         </div>
-      
+
     </div>
   </section><!--/form-->
 
