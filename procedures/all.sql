@@ -25,7 +25,7 @@ CREATE PROCEDURE addArticulo(
   IN _producto varchar(255),
   IN _precio_compra float,
   IN _precio_venta float,
-  IN _descripcion varchar(45),
+  IN _descripcion varchar(255),
   IN _id_categoria int,
   IN _id_provedor int,
   IN _imagen varchar(255)
@@ -46,23 +46,23 @@ DROP PROCEDURE IF EXISTS addProvedor;
 DELIMITER $$
 
 CREATE PROCEDURE addProvedor(
-  IN _provedor varchar(255),
-  IN _contacto varchar(45),
-  IN _telefono varchar(45),
-  IN _correo varchar(45),
-  IN _calle varchar(45),
-  IN _no_exterior int,
-  IN _no_interior int,
-  IN _id_estado int,
-  IN _id_municipio int,
-  IN _id_colonia int,
-  IN _id_cp int
+  _provedor varchar(45),
+  _contacto varchar(45),
+  _telefono varchar(10),
+  _correo varchar(45),
+  _calle varchar(45),
+  _numExterior int,
+  _numInterior int,
+  _estado int,
+  _municipio int,
+  _colonia varchar(45),
+  _codigoPostal int
 )
 
 BEGIN
 
-INSERT INTO `pv_provedor`( `provedor`, `contacto`, `telefono`, `correo`, `calle`, `no_exterior`, `no_interior`, `id_estado`, `id_municipio`, `id_colonia`, `id_cp`) VALUES
- (_provedor,_contacto,_telefono,_correo,_calle,_no_exterior,_no_interior,_id_estado,_id_municipio,_id_colonia,_id_cp);
+INSERT INTO pv_provedor( provedor, contacto, telefono, correo, calle, no_exterior, no_interior, id_estado, id_municipio, id_colonia, id_cp)
+VALUES (_provedor, _contacto, _telefono, _correo, _calle, _numExterior, _numInterior, _estado, _municipio, _colonia, _codigoPostal);
 
 END $$
 DELIMITER ;
@@ -356,7 +356,9 @@ CREATE PROCEDURE searchProductos()
 
 BEGIN
 
-SELECT * FROM pv_imagen, pv_producto group by pv_imagen.`id_imagen`;
+select p.id_producto, producto, precio_venta, descripcion, imagen
+from pv_producto p
+inner join pv_imagen i on p.id_producto = i.id_producto;
 
 END $$
 DELIMITER ;
@@ -369,7 +371,7 @@ CREATE PROCEDURE updateProducto(
   IN _producto varchar(255),
   IN _precio_compra float,
   IN _precio_venta float,
-  IN _descripcion varchar(45),
+  IN _descripcion varchar(255),
   IN _id_categoria int,
   IN _id_provedor int,
   IN _id_producto int,
@@ -379,7 +381,6 @@ CREATE PROCEDURE updateProducto(
 BEGIN
 
 UPDATE `pv_imagen` SET `imagen`=_imagen WHERE `id_producto`=_id_producto;
-
 
 UPDATE `pv_producto` SET
  `producto`=_producto,`precio_compra`=_precio_compra,`precio_venta`=_precio_venta,
