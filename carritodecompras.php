@@ -19,7 +19,8 @@
 						$nombre="";
 						$precio=0;
 						$imagen="";
-						$sql="select * from pv_imagen, pv_producto where pv_producto.id_producto=".$_GET['id']."";
+						$sql="select producto, precio_venta, imagen  from pv_producto p "
+						. "inner join pv_imagen i on p.id_producto = i.id_producto where p.id_producto=".$_GET['id']."";
 						$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
                      while($row=$result->fetch_assoc()){
 							$nombre=$row['producto'];
@@ -37,21 +38,18 @@
 
 					}
 		}
-
-
-
-
 	}else{
 		if(isset($_GET['id'])){
 			$nombre="";
 			$precio=0;
 			$imagen="";
-			$sql="select * from pv_imagen, pv_producto where pv_producto.id_producto=".$_GET['id']."";
-						$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
-                     while($row=$result->fetch_assoc()){
-				            $nombre=$row['producto'];
-							$precio=$row['precio_venta'];
-							$imagen=$row['imagen'];
+			$sql="select producto, precio_venta, imagen  from pv_producto p "
+			. "inner join pv_imagen i on p.id_producto = i.id_producto where p.id_producto=".$_GET['id']."";
+			$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+               while($row=$result->fetch_assoc()){
+	            $nombre=$row['producto'];
+				$precio=$row['precio_venta'];
+				$imagen=$row['imagen'];
 			}
 			$arreglo[]=array('Id'=>$_GET['id'],
 							'Nombre'=>$nombre,
@@ -69,7 +67,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | E-Shopper</title>
+    <title>Login | Furniture</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -101,17 +99,17 @@
 			$total=0;
 			if(isset($_SESSION['carrito'])){
 			$datos=$_SESSION['carrito'];
-		
+
 			$total=0;
 			for($i=0;$i<count($datos);$i++){
-				
+
 	?>
 				<div class="producto">
 					<center>
 						<img src="./files/<?php echo $datos[$i]['Imagen'];?>" ><br>
 						<span ><?php echo $datos[$i]['Nombre'];?></span><br>
 						<span>Precio: <?php echo $datos[$i]['Precio'];?></span><br>
-						<span>Cantidad: 
+						<span>Cantidad:
 							<input type="text" value="<?php echo $datos[$i]['Cantidad'];?>"
 							data-precio="<?php echo $datos[$i]['Precio'];?>"
 							data-id="<?php echo $datos[$i]['Id'];?>"
@@ -124,7 +122,7 @@
 			<?php
 				$total=($datos[$i]['Cantidad']*$datos[$i]['Precio'])+$total;
 			}
-				
+
 			}else{
 				echo '<center><h2>No has añadido ningun producto</h2></center>';
 			}
@@ -136,32 +134,26 @@
 				<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="formulario">
 					<input type="hidden" name="cmd" value="_cart">
 					<input type="hidden" name="upload" value="1">
-					<input type="hidden" name="business" value="gasparin_bart11-facilitator@hotmail.com">
+					<input type="hidden" name="business" value="furniture_test@gmail.com">
 					<input type="hidden" name="currency_code" value="MXN">
-					<input type="hidden" name="return" value="http://localhost/FurnitureGit/ipn_success.php">
-                    <input type="hidden" name="cancel_return" value="http://localhost/FurnitureGit/ipn_error.php">
-					
-					<?php 
+					<input type="hidden" name="return" value="http://localhost/Furniture/ipn_success.php">
+            <input type="hidden" name="cancel_return" value="http://localhost/Furniture/ipn_error.php">
+					<?php
 						for($i=0;$i<count($datos);$i++){
 					?>
 						<input type="hidden" name="item_name_<?php echo $i+1;?>" value="<?php echo $datos[$i]['Nombre'];?>">
 						<input type="hidden" name="amount_<?php echo $i+1;?>" value="<?php echo $datos[$i]['Precio'];?>">
-						<input	type="hidden" name="quantity_<?php echo $i+1;?>" value="<?php echo $datos[$i]['Cantidad'];?>">	
-					<?php 
+						<input	type="hidden" name="quantity_<?php echo $i+1;?>" value="<?php echo $datos[$i]['Cantidad'];?>">
+					<?php
 						}
 					?>
-						
-
 					<center><input type="submit" value="comprar" class="aceptar" style="width:200px"></center>
 			</form>
 			<?php
 			}
 		}
-			
 		?>
 		<center><a href="./">Ver catalogo</a></center>
-
-		
 	</section>
   <footer id="footer"><!--Footer-->
     <?php include_once('footer.php'); ?>

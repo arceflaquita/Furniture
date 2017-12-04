@@ -50,7 +50,7 @@
 
       <div id="search">
       </div>
-      
+
       <?php include_once('slider.php'); ?>
 			<div class="row">
 				<div id="slider" class="col-3" style="margin-top: 5px;">
@@ -67,7 +67,7 @@
             $idProvedor="";
             $imagen="";
             $contador=0;
-            $sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen`  ";
+            $sql="CALL searchProductos();";
             $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
             echo "<div class='panel panel-default'>
@@ -79,8 +79,7 @@
                   </div>
 							</div>";
             }
-                ?>
-
+            ?>
 						</div><!--/category-products-->
 					</div>
 				</div>
@@ -90,9 +89,7 @@
 						<h2 class="title text-center">Nuevos Productos en Diciembre</h2>
             <hr style="color: red; border-top: 3px solid #eee;">
 					  <?php
-					  include_once('conexion.php');
-            $sql="SELECT * FROM pv_imagen, pv_producto  group by pv_imagen.`id_imagen` ";
-            $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+            mysqli_data_seek($result,0);
             while($row=$result->fetch_assoc()){
             echo "<div class='col-sm-4'>
 							<div class='product-image-wrapper'>
@@ -119,6 +116,7 @@
 							</div>
 						</div>";
             }
+            if($result) mysqli_free_result($result);
             ?>
 					</div><!--features_items-->
 

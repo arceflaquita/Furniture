@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include_once('conexion.php');
 
@@ -13,9 +13,6 @@ $total=($arreglo[$i]['Cantidad']*$arreglo[$i]['Precio'])+$total;
 $sql = "CALL addVentaArticulo($total,$idUsuario);";
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 
-
-
-	
 for($i=0; $i<count($arreglo);$i++){
 
 $sql = "CALL addDestalleVenta(".$arreglo[$i]['Precio'].",".$arreglo[$i]['Cantidad'].",".$arreglo[$i]['Id'].");";

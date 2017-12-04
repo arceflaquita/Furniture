@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | E-Shopper</title>
+    <title>Login | Furniture</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -29,7 +29,7 @@
 </head><!--/head-->
 
 <body>
- <?php 
+ <?php
  include_once('conexion.php');
  $idProvedor=$_GET['idProvedor'];
  $provedor="";
@@ -43,7 +43,7 @@
  $idMunicipio="";
  $idColonia="";
  $idCp="";
- 
+
  $sql="select *  from pv_provedor where id_provedor=".$idProvedor;
  $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
  while($row=$result->fetch_assoc()){
@@ -59,9 +59,9 @@
  	$idColonia=$row['id_colonia'];
  	$idCp=$row['id_cp'];
  }
- 
+
  $resultadoEstado="";
- 
+
  $sql="select * from pv_estado";
  $resulta = $conn->query($sql) or die("error: " . mysqli_error($conn));
  while($row=$resulta->fetch_assoc()){
@@ -71,9 +71,9 @@
  		$resultadoEstado.=" <option value='".$row['id_estado']."' >".$row['estado']."</option>";
  	}
  }
- 
+
  $resultadoMunicipio="";
- 
+
  $sql="select * from pv_municipio where id_estado=".$idEstado;
  $resulta = $conn->query($sql) or die("error: " . mysqli_error($conn));
  while($row=$resulta->fetch_assoc()){
@@ -83,40 +83,14 @@
  		$resultadoMunicipio.=" <option value='".$row['id_municipio']."' >".$row['municipio']."</option>";
  	}
  }
- 
- $resultadoColonia="";
- 
- $sql="select * from pv_colonia where id_municipio=".$idMunicipio;
- $resulta = $conn->query($sql) or die("error: " . mysqli_error($conn));
- while($row=$resulta->fetch_assoc()){
- 	if($idColonia=$row['id_colonia']){
- 		$resultadoColonia.=" <option value='".$row['id_colonia']."' selected>".$row['colonia']."</option>";
- 	}else{
- 		$resultadoColonia.=" <option value='".$row['id_colonia']."' >".$row['colonia']."</option>";
- 	}
- }
- 	
- 	$resultadoCP="";
- 	
- 	$sql="select * from pv_cp where id_colonia=".$idColonia;
- 	$resulta = $conn->query($sql) or die("error: " . mysqli_error($conn));
- 	while($row=$resulta->fetch_assoc()){
- 		if($idCp=$row['id_cp']){
- 			$resultadoCP.=" <option value='".$row['id_cp']."' selected>".$row['cp']."</option>";
- 		}else{
- 			$resultadoCP.=" <option value='".$row['id_cp']."' >".$row['cp']."</option>";
- 		}
- }
- 
- 
- 
+
  ?>
   <header id="header"><!--header-->
     <?php include_once('header.php'); ?>
   </header><!--/header-->
   <section id="form"><!--form-->
     <div class="container">
-  
+
         <div class="col-md-10">
           <div class="signup-form"><!--sign up form-->
             <h2>Nuevo Provedor</h2>
@@ -124,9 +98,9 @@
             <input type='text' style='display:none;' name='txtIdprovedor' id='txtIdprovedor'  value=<?php echo $idProvedor?> />
               <div class="col-md-5">
               <input type="text" name="txtProvedor"  class="form-control" placeholder="Nombre del Provedor" value=<?php echo $provedor ?> required="required"/>
-               
+
               <input type="text" name="txtContacto" class="form-control" placeholder="contacto" value=<?php echo $contacto ?> required="required"/>
-            
+
               <input type="tel" name="txtTelefono" class="form-control" placeholder="Telefono" value=<?php echo $telefono ?> required="required"/>
 
               <input type="email" name="txtCorreo" class="form-control" placeholder="Correo" value=<?php echo $correo ?> required="required"/>
@@ -136,52 +110,44 @@
                 <input type="text" name="txtNumExterior" class="form-control" placeholder="Numero Exterio" value=<?php echo $noExterior ?> required="required"/>
                 <input type="text" name="txtNumInterior" class="form-control" placeholder="Numero Interior" value=<?php echo $noInterir ?> required="required"/>
               </div>
-          
+
             </div>
             <div class="col-md-5">
-          
-            
+
+
               <h5>Estado</h5>
               <select name="estado" id="estado">
               <option value="0">Seleccione un Estado</option>
                 <?php echo $resultadoEstado ?>
               </select>
-              
+
               <h5>Municipio</h5>
               <select name="municipio" id="municipio">
                 <option value="0">Seleccione un Municipio</option>
                 <?php echo $resultadoMunicipio ?>
               </select>
-              
 
-              
+
+
               <h5>Colonia</h5>
-              <select name="colonia" id="colonia">
-                <option value="0">Seleccione una Colonia</option>
-                <?php echo $resultadoColonia ?>
-              </select>
-              
+              <input type="text" name="colonia" id="colonia" class="form-control" placeholder="Colonia" required="required"/>
 
-             
               <h5>Codigo Postal</h5>
-              <select name="codigoPostal" id="codigoPostal">
-                <option value="0">Seleccione un codigo Postal</option>
-                <?php echo $resultadoCP ?>
-              </select>
-              
-            
+              <input type="text"  name="codigoPostal" id="codigoPostal"  class="form-control" placeholder="Colonia required="required"/>
+
+
 
               </br></br>
-             
+
               </div>
               <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> AGREGAR</button>
-              
+
 
 
             </form>
           </div><!--/sign up form-->
         </div>
-      
+
     </div>
   </section><!--/form-->
 
@@ -198,4 +164,3 @@
   <script src="js/index2.js"></script>
 </body>
 </html>
-

@@ -51,7 +51,7 @@ $sql = "CALL spSaveCustomer ('" . $email ."', '" . $nombre_contacto."', '" .
   $actualPass_hash."', '" . $newPass_hash."');";
 //echo $sql;
 $result = $conn->query($sql) or die ("Error: " . mysqli_error($conn));
-var_dump($result);
+//var_dump($result);
 $row = mysqli_fetch_array($result);
 //echo $row['sql_error'];
 if($row['sql_error'] == ''){

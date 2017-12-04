@@ -1,9 +1,5 @@
 <?php
 
-?>
-
-   <?php
-
 session_start();
 
    function pdf(){
@@ -75,13 +71,12 @@ $total=($datos[$i]['Cantidad']*$datos[$i]['Precio'])+$total;
 }
 $idUsuario=$_SESSION['id_cliente'];
 include_once('conexion.php');
-$sql="SELECT * FROM `pv_cliente`,`pv_estado`,`pv_municipio`,`pv_colonia` WHERE id_cliente=".$idUsuario;
+//FIXME: $sql="SELECT * FROM `pv_cliente`,`pv_estado`,`pv_municipio` WHERE id_cliente=".$idUsuario;
+$sql="SELECT nombre_cliente, telefono, calle, municipio, estado "
+. "FROM pv_cliente c inner join pv_estado e on c.id_estado=e.id_estado "
+. "inner join pv_municipio m on c.id_municipio = m.id_municipio WHERE id_cliente=".$idUsuario;
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
-
-
-
-
  $print=$print. "
 	</section> <!--/#cart_items-->
 
@@ -111,14 +106,9 @@ $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 return $print;
 	}
 
-?>
-
-
-
-<?php
+/*
 require_once('./mpdf/mpdf.php');
-
- $prefijo = substr(md5(uniqid(rand())), 0, 6);
+$prefijo = substr(md5(uniqid(rand())), 0, 6);
 $mpdf = new mPDF('c','A4');
 $css=file_get_contents('css/main.css');
 $css2=file_get_contents('css/bootstrap.min.css');
@@ -126,5 +116,19 @@ $mpdf->writeHTML($css2,1);
 $mpdf->writeHTML($css,1);
 $mpdf->writeHTML(pdf());
 $mpdf->Output($prefijo.'report.pdf','I');
+*/
 
+ini_set("pcre.backtrack_limit", "10000000");
+ini_set('max_execution_time', 300); //300 seconds = 5 minutes
+
+require_once __DIR__ . '/vendor/autoload.php';
+$prefijo = substr(md5(uniqid(rand())), 0, 6);
+$mpdf = new \Mpdf\Mpdf();
+$css=file_get_contents('css/main.css');
+$css2=file_get_contents('css/bootstrap.min.css');
+$mpdf->writeHTML($css2,1);
+$mpdf->writeHTML($css,1);
+$content = pdf();
+$mpdf->writeHTML($content);
+$mpdf->Output($prefijo.'report.pdf','I');
 ?>

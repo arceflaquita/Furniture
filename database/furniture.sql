@@ -269,7 +269,11 @@ insert into pv_categoria_usuario (categoria) values ('administrador');
 insert into pv_categoria_usuario (categoria) values ('cliente');
 insert into pv_categoria_usuario (categoria) values ('secretaria');
 insert into pv_usuario (nom_user,password,id_categoria, email) values ('admin','maNFFVN3iSshg',1, 'admin@furniture.com'); --admin23
-insert into pv_usuario (nom_user,password,id_categoria, email) values ('alondra','mav6vjSDWNY7o',2, 'alondra@gmail.com');  --1234
+insert into pv_usuario (nom_user,password,id_categoria, email) values ('alondra','mav6vjSDWNY7o',3, 'alondra@gmail.com');  --1234
+
+
+--PV_PROCESO
+insert into pv_proceso(proceso) values ('venta');
 
   --PV_CATEGORIA
   -- -----------------------------------------------------
