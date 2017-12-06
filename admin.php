@@ -52,7 +52,7 @@
 			<div class="row">
         <div class="layout">
           <div class="centre">
-            <img src="images/admin/matrix.jpg" width="800px">
+            <img src="images/home/logo.png" width="800px">
           </div>
         </div>
 			</div>
