@@ -257,6 +257,16 @@ CREATE TABLE IF NOT EXISTS `furniture`.`PV_IMAGEN` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `furniture`.`PV_IMAGEN`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `furniture`.`PV_CARRUSEL` (
+  `id_imagen` INT NOT NULL AUTO_INCREMENT,
+  `imagen` VARCHAR(512) NOT NULL,
+  `descripcion` VARCHAR(512) NOT NULL,
+  `URL` VARCHAR(512) NULL,
+  PRIMARY KEY (`id_imagen`))
+ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

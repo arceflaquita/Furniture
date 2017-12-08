@@ -1,3 +1,23 @@
+DROP PROCEDURE IF EXISTS spAddCarrusel;
+
+DELIMITER $$
+
+CREATE PROCEDURE spAddCarrusel(
+in _imagen varchar(512),
+in _descripcion varchar(512),
+in _URL varchar(512)
+)
+
+BEGIN
+
+insert into pv_carrusel
+(imagen, descripcion, URL)
+values
+(_imagen, _descripcion, _URL);
+
+END $$
+DELIMITER ;
+/* show create procedure spCheckUser; */
 DROP PROCEDURE IF EXISTS addDestalleVenta;
 
 DELIMITER $$
@@ -115,6 +135,38 @@ DELETE FROM `pv_producto` WHERE `id_producto`=_id_producto;
 
 END $$
 DELIMITER ;
+DROP PROCEDURE IF EXISTS spGetCarrusel;
+
+DELIMITER $$
+
+CREATE PROCEDURE spGetCarrusel()
+
+BEGIN
+
+select id_imagen, imagen, descripcion, URL
+from pv_carrusel;
+
+END $$
+DELIMITER ;
+/* show create procedure spCheckUser; */
+DROP PROCEDURE IF EXISTS spGetProductsByCategory;
+
+DELIMITER $$
+
+CREATE PROCEDURE spGetProductsByCategory(
+  in _category int
+)
+
+BEGIN
+
+select p.id_producto, producto, precio_venta, descripcion, imagen
+from pv_producto p
+inner join pv_imagen i on p.id_producto = i.id_producto
+where id_categoria = _category;
+
+END $$
+DELIMITER ;
+/* show create procedure spCheckUser; */
 DROP PROCEDURE IF EXISTS spInsCustomer;
 
 DELIMITER $$

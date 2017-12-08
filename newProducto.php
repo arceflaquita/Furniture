@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Login | Furniture</title>
+    <title>Nuevo Producto | Furniture</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -34,7 +34,7 @@
   </header><!--/header-->
 	<section id="form"><!--form-->
 		<div class="container">
-	
+
 				<div class="col-md-10">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Nuevo Producto</h2>
@@ -56,23 +56,23 @@
             <td><input type="file" name="archivo" id="archivo"  size="35" accept="image/png, .jpeg, .jpg, image/gif" ><input type="hidden" name="action" value="upload" ></div>
             </div>
             <div class="col-md-5">
-          
+
               <?php include_once('consultaCategoria.php'); ?>
 
               <?php include_once('consultaComboProvedores.php'); ?>
               </br></br>
              <textarea class="form-control" name="txtDescripcion" placeholder="Descripción" rows="5" required="required" ></textarea>
-             
-             
+
+
 							</div>
 							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> AGREGAR</button>
-              
+
 
 
 						</form>
 					</div><!--/sign up form-->
 				</div>
-			
+
 		</div>
 	</section><!--/form-->
 

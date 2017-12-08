@@ -46,11 +46,14 @@
           </button>
         </div>
         <div class="mainmenu pull-left">
+          <b>
           <ul class="nav navbar-nav collapse navbar-collapse">
-            <li><a href="queryCustomers.php" class="active">CLIENTES</a></li>
-            <li><a href="searchProducto.php" class="active">PRODUCTOS</a></li>
+            <li><a href="carrusel.php" class="active">CARRUSEL</a></li>
             <li><a href="searchProvedor.php" class="active">PROVEDORES</a></li>
+            <li><a href="searchProducto.php" class="active">PRODUCTOS</a></li>
+            <li><a href="queryCustomers.php" class="active">CLIENTES</a></li>
           </ul>
+          </b>
         </div>
       </div>
     </div>

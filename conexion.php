@@ -5,7 +5,7 @@ if($server) {
   $host = '45.40.164.98';
   $user = 'alumndb2';
   $pw = 'Al@umNd1';
-  $db = 'furniture';
+  $db = 'alumndb2';  //nombre de la base del tu dominio
 }else{
   $host = 'localhost';
   $user = 'root';
