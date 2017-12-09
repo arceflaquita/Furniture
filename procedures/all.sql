@@ -4,16 +4,15 @@ DELIMITER $$
 
 CREATE PROCEDURE spAddCarrusel(
 in _imagen varchar(512),
-in _descripcion varchar(512),
-in _URL varchar(512)
+in _id_producto int
 )
 
 BEGIN
 
 insert into pv_carrusel
-(imagen, descripcion, URL)
+(imagen, id_producto)
 values
-(_imagen, _descripcion, _URL);
+(_imagen, _id_producto);
 
 END $$
 DELIMITER ;
@@ -120,6 +119,20 @@ AND password = _password;
 END $$
 DELIMITER ;
 /* show create procedure spCheckUser; */
+DROP PROCEDURE IF EXISTS spDelCarrusel;
+
+DELIMITER $$
+
+CREATE PROCEDURE spDelCarrusel(
+  IN _id_imagen int
+)
+
+BEGIN
+
+DELETE FROM `pv_carrusel` WHERE `id_imagen`= _id_imagen;
+
+END $$
+DELIMITER ;
 DROP PROCEDURE IF EXISTS deleteProducto;
 
 DELIMITER $$
@@ -143,8 +156,10 @@ CREATE PROCEDURE spGetCarrusel()
 
 BEGIN
 
-select id_imagen, imagen, descripcion, URL
-from pv_carrusel;
+select id_imagen, imagen, producto
+from pv_carrusel c
+inner join pv_producto p
+on p.id_producto = c.id_producto;
 
 END $$
 DELIMITER ;
@@ -415,6 +430,26 @@ inner join pv_imagen i on p.id_producto = i.id_producto;
 END $$
 DELIMITER ;
 /* show create procedure spCheckUser; */
+DROP PROCEDURE IF EXISTS spUpdCarrusel;
+
+DELIMITER $$
+
+CREATE PROCEDURE spUpdCarrusel(
+  in _id_imagen int,
+  in _imagen varchar(512),
+  in _id_producto int
+)
+
+BEGIN
+
+update pv_carrusel
+set imagen = _imagen,
+id_producto = _id_producto
+where id_imagen = _id_imagen;
+
+END $$
+DELIMITER ;
+/* show create procedure spUpdCarrusel; */
 DROP PROCEDURE IF EXISTS updateProducto;
 
 DELIMITER $$

@@ -6,8 +6,10 @@ CREATE PROCEDURE spGetCarrusel()
 
 BEGIN
 
-select id_imagen, imagen, descripcion, URL
-from pv_carrusel;
+select id_imagen, imagen, producto
+from pv_carrusel c
+inner join pv_producto p
+on p.id_producto = c.id_producto;
 
 END $$
 DELIMITER ;

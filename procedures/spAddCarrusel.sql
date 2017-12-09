@@ -4,16 +4,15 @@ DELIMITER $$
 
 CREATE PROCEDURE spAddCarrusel(
 in _imagen varchar(512),
-in _descripcion varchar(512),
-in _URL varchar(512)
+in _id_producto int
 )
 
 BEGIN
 
 insert into pv_carrusel
-(imagen, descripcion, URL)
+(imagen, id_producto)
 values
-(_imagen, _descripcion, _URL);
+(_imagen, _id_producto);
 
 END $$
 DELIMITER ;
