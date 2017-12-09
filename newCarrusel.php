@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Nuevo Carrusel | Furniture</title>
+    <title>Nueva Imagen Carrusel | Furniture</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -14,7 +14,6 @@
     <link href="css/animate.css" rel="stylesheet">
 	  <link href="css/main.css" rel="stylesheet">
 	  <link href="css/responsive.css" rel="stylesheet">
-
     <link href="css/furniture.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -30,32 +29,33 @@
 
 <body>
   <header id="header"><!--header-->
-    <?php include_once('header.php'); ?>
+    <?php include_once('headeradmin.php'); ?>
   </header><!--/header-->
 	<section id="form"><!--form-->
 		<div class="container">
-				<div class="col-md-10">
-					<div class="signup-form"><!--sign up form-->
-						<h2>Nueva Imagen</h2>
-						<form action="addCarrusel.php" id="formA" method="post" enctype="multipart/form-data">
-              <div class="col-md-5">
-                <div>
-                <td>Imagen:</td>
-                <td><input type="file" name="archivo" id="archivo"  size="35" accept="image/png, .jpeg, .jpg, image/gif" ><input type="hidden" name="action" value="upload" >
-               </div>
-               </br>
-							 <input type="text" name="txtURL"  class="form-control" placeholder="URL promocion" required="required"/>
-              </div>
-              <div class="col-md-5">
+			<div class="col-md-10">
+				<div class="signup-form"><!--sign up form-->
+					<h2>Nueva Imagen Carrusel</h2>
+					<form action="addCarrusel.php" id="formA" method="post" enctype="multipart/form-data">
+            <div class="col-md-5">
+              <div>
+              <td>Imagen:</td>
+              <td><input type="file" name="archivo" id="archivo"  size="35" accept="image/png, .jpeg, .jpg, image/gif" ><input type="hidden" name="action" value="upload" >
+             </div>
+            </div>
+            <div class="col-md-5">
+              <?php include_once('consultaCategoria.php'); ?>
               </br>
-              <textarea class="form-control" name="txtDescripcion" placeholder="Descripción" rows="5" required="required" ></textarea>
-							</div>
-							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> AGREGAR</button>
-
-						</form>
-					</div><!--/sign up form-->
+              <select name="comboProducto" id="comboProducto"  required="required">
+                <option value='0'>Selecciona un Producto</option>
+              </select>
+              </br>
+            	</div>
+						<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp; GUARDAR</button>
+            </br>
+          </form><!--/sign up form-->
 				</div>
-
+      </div>
 		</div>
 	</section><!--/form-->
 
@@ -69,5 +69,6 @@
 	<script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.prettyPhoto.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/carrusel.js"></script>
 </body>
 </html>

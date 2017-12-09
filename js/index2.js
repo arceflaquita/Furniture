@@ -1,6 +1,6 @@
 function eliminar(id){
 	var idProducto=id;
-	 var r =confirm("Decea Eliminar este Registro!");
+	 var r =confirm("Desea Eliminar este Registro!");
 	  if (r == true) {
       window.location.href = 'eliminarProducto.php?idProducto='+idProducto;
 
@@ -11,7 +11,7 @@ function eliminar(id){
 
 function eliminarProve(id){
 	var idProvedor=id;
-	 var r =confirm("Decea Eliminar este Registro!");
+	 var r =confirm("Desea Eliminar este Registro!");
 	  if (r == true) {
       window.location.href = 'eliminarProvedor.php?idProvedor='+idProvedor;
 

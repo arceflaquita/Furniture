@@ -71,9 +71,9 @@
             $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
             echo "<div class='panel panel-default'>
-                  <div class='img-special1'><a href='consultaDatellaProducto.php?idProducto=".$row['id_producto']."'><img class='img-special' src='files/".$row['imagen']."' alt=''  /></a></div>
+                  <div class='img-special1'><a href='consultaDetalleProducto.php?idProducto=".$row['id_producto']."'><img class='img-special' src='files/".$row['imagen']."' alt=''  /></a></div>
                   <div class='details-spe'>
-                    <a class='' style='color:orange;' href='consultaDatellaProducto.php?idProducto=".$row['id_producto']."'>".$row['producto']."</a>
+                    <a class='' style='color:orange;' href='consultaDetalleProducto.php?idProducto=".$row['id_producto']."'>".$row['producto']."</a>
                     </br>
                     <label id='precio'>$".$row['precio_venta']."</label>
                   </div>
@@ -110,7 +110,7 @@
 								<div class='choose'>
 									<ul class='nav nav-pills nav-justified'>
                     <li class='añadir'><a href='carritodecompras.php?id=".$row['id_producto']."' style='color:white;'>Añadir a la Cesta</a></li>
-										<li class='detalles'><a href='consultaDatellaProducto.php?idProducto=".$row['id_producto']."' style='color:black;'></i>Detalles</a></li>
+										<li class='detalles'><a href='consultaDetalleProducto.php?idProducto=".$row['id_producto']."' style='color:black;'></i>Detalles</a></li>
 									</ul>
 								</div>
 							</div>

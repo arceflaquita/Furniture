@@ -263,9 +263,13 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `furniture`.`PV_CARRUSEL` (
   `id_imagen` INT NOT NULL AUTO_INCREMENT,
   `imagen` VARCHAR(512) NOT NULL,
-  `descripcion` VARCHAR(512) NOT NULL,
-  `URL` VARCHAR(512) NULL,
-  PRIMARY KEY (`id_imagen`))
+  `id_producto` INT NOT NULL,
+  PRIMARY KEY (`id_imagen`),
+  CONSTRAINT `fk_PV_CARRUSEL_PV_PRODUCTO1`
+    FOREIGN KEY (`id_producto`)
+    REFERENCES `furniture`.`PV_PRODUCTO` (`id_producto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;

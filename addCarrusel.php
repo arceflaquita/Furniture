@@ -1,7 +1,6 @@
 <?php
 include_once('conexion.php');
-$URL=$_POST['txtURL'];
-$descripcion=$_POST['txtDescripcion'];
+$id_prod=(int)$_POST['comboProducto'];
 $imagen="";
 if ($_POST['action'] == 'upload') {
     //Obtener datos del archivo
@@ -22,7 +21,7 @@ if ($_POST['action'] == 'upload') {
        $imagen="sinImagen.jpg";
     }
 }
-$sql = "CALL spAddCarrusel('$imagen', '$descripcion', '$URL');";
+$sql = "CALL spAddCarrusel('$imagen', $id_prod);";
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
 header("Location: carrusel.php");
 ?>

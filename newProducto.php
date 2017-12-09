@@ -14,7 +14,6 @@
     <link href="css/animate.css" rel="stylesheet">
 	  <link href="css/main.css" rel="stylesheet">
 	  <link href="css/responsive.css" rel="stylesheet">
-
     <link href="css/furniture.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -30,7 +29,7 @@
 
 <body>
   <header id="header"><!--header-->
-    <?php include_once('header.php'); ?>
+    <?php include_once('headeradmin.php'); ?>
   </header><!--/header-->
 	<section id="form"><!--form-->
 		<div class="container">
@@ -58,16 +57,12 @@
             <div class="col-md-5">
 
               <?php include_once('consultaCategoria.php'); ?>
-
               <?php include_once('consultaComboProvedores.php'); ?>
+
               </br></br>
              <textarea class="form-control" name="txtDescripcion" placeholder="Descripción" rows="5" required="required" ></textarea>
-
-
 							</div>
-							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> AGREGAR</button>
-
-
+							<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp; GUARDAR</button>
 
 						</form>
 					</div><!--/sign up form-->
