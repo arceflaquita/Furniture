@@ -1,64 +1,7 @@
 <?php
 	session_start();
-	 include_once('conexion.php');
-	if(isset($_SESSION['carrito'])){
-		if(isset($_GET['id'])){
-					$arreglo=$_SESSION['carrito'];
-					$encontro=false;
-					$numero=0;
-					for($i=0;$i<count($arreglo);$i++){
-						if($arreglo[$i]['Id']==$_GET['id']){
-							$encontro=true;
-							$numero=$i;
-						}
-					}
-					if($encontro==true){
-						$arreglo[$numero]['Cantidad']=$arreglo[$numero]['Cantidad']+1;
-						$_SESSION['carrito']=$arreglo;
-					}else{
-						$nombre="";
-						$precio=0;
-						$imagen="";
-						$sql="select producto, precio_venta, imagen  from pv_producto p "
-						. "inner join pv_imagen i on p.id_producto = i.id_producto where p.id_producto=".$_GET['id']."";
-						$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
-                     while($row=$result->fetch_assoc()){
-							$nombre=$row['producto'];
-							$precio=$row['precio_venta'];
-							$imagen=$row['imagen'];
-						}
-						$datosNuevos=array('Id'=>$_GET['id'],
-										'Nombre'=>$nombre,
-										'Precio'=>$precio,
-										'Imagen'=>$imagen,
-										'Cantidad'=>1);
-
-						array_push($arreglo, $datosNuevos);
-						$_SESSION['carrito']=$arreglo;
-
-					}
-		}
-	}else{
-		if(isset($_GET['id'])){
-			$nombre="";
-			$precio=0;
-			$imagen="";
-			$sql="select producto, precio_venta, imagen  from pv_producto p "
-			. "inner join pv_imagen i on p.id_producto = i.id_producto where p.id_producto=".$_GET['id']."";
-			$result = $conn->query($sql) or die("error: " . mysqli_error($conn));
-               while($row=$result->fetch_assoc()){
-	            $nombre=$row['producto'];
-				$precio=$row['precio_venta'];
-				$imagen=$row['imagen'];
-			}
-			$arreglo[]=array('Id'=>$_GET['id'],
-							'Nombre'=>$nombre,
-							'Precio'=>$precio,
-							'Imagen'=>$imagen,
-							'Cantidad'=>1);
-			$_SESSION['carrito']=$arreglo;
-		}
-	}
+	include_once('conexion.php');
+	//var_dump($_SESSION['carrito']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,30 +42,36 @@
 			$total=0;
 			if(isset($_SESSION['carrito'])){
 			$datos=$_SESSION['carrito'];
-
-			$total=0;
-			for($i=0;$i<count($datos);$i++){
-
-	?>
-				<div class="producto">
-					<center>
-						<img src="./files/<?php echo $datos[$i]['Imagen'];?>" ><br>
-						<span ><?php echo $datos[$i]['Nombre'];?></span><br>
-						<span>Precio: <?php echo $datos[$i]['Precio'];?></span><br>
-						<span>Cantidad:
-							<input type="text" value="<?php echo $datos[$i]['Cantidad'];?>"
-							data-precio="<?php echo $datos[$i]['Precio'];?>"
-							data-id="<?php echo $datos[$i]['Id'];?>"
-							class="cantidad">
-						</span><br>
-						<span class="subtotal">Subtotal:<?php echo $datos[$i]['Cantidad']*$datos[$i]['Precio'];?></span><br>
-						<a href="#" class="eliminar" data-id="<?php echo $datos[$i]['Id']?>">Eliminar</a>
-					</center>
-				</div>
-			<?php
-				$total=($datos[$i]['Cantidad']*$datos[$i]['Precio'])+$total;
-			}
-
+			echo "<table class='table'>";
+				echo "<tr>";
+				echo "<th>Imagen</th>";
+				echo "<th>Nombre producto</th>";
+				echo "<th>Precio</th>";
+				echo "<th>Cantidad</th>";
+				echo "<th>Subtotal</th>";
+				echo "<th>Eliminar</th>";
+				echo "</tr>";
+				for($i=0;$i<count($datos);$i++){
+				?>
+				<tr>
+					<td><img src="./files/<?php echo $datos[$i]['Imagen'];?>" width="120px"></td>
+					<td><span><?php echo $datos[$i]['Nombre'];?></span></td>
+					<td><span>Precio: <?php echo $datos[$i]['Precio'];?></span></td>
+					<td>
+					<span>Cantidad:
+						<input type="text" value="<?php echo $datos[$i]['Cantidad'];?>"
+						data-precio="<?php echo $datos[$i]['Precio'];?>"
+						data-id="<?php echo $datos[$i]['Id'];?>"
+						class="cantidad">
+					</span></td>
+					<td><span class="subtotal">Subtotal:<?php echo $datos[$i]['Cantidad']*$datos[$i]['Precio'];?></span></td>
+					<td><a href="#" class="eliminar" data-id="<?php echo $datos[$i]['Id']; ?>">Eliminar</a></td>
+				</tr>
+				<?php
+					$total=($datos[$i]['Cantidad']*$datos[$i]['Precio'])+$total;
+				}
+				echo "</tr>";
+				echo "</table>";
 			}else{
 				echo '<center><h2>No has añadido ningun producto</h2></center>';
 			}
@@ -150,6 +99,8 @@
 					<center><input type="submit" value="comprar" class="aceptar" style="width:200px"></center>
 			</form>
 			<?php
+			}else{
+				echo '<center><h4><a href="login.php">Inicie sesion </a>para continuar con su compra.</h4></center>';
 			}
 		}
 		?>

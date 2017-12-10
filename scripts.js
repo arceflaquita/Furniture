@@ -11,7 +11,8 @@ var inicio=function () {
 					Precio:precio,
 					Cantidad:cantidad
 				},function(e){
-						$("#total").text('Total: '+e);
+						//$("#total").text('Total: '+e);
+						location.href="carritodecompras.php";
 				});
 			}
 		}
@@ -23,20 +24,16 @@ var inicio=function () {
 		$.post('eliminar.php',{
 			Id:id
 		},function(a){
-			
-			if(a=='0'){
-				location.href="carritodecompras.php";
-			}
+			location.href="carritodecompras.php";
 		});
-
 	});
 	$("#formulario").submit(function(evento){
 		//alert("se omitio el evento");
 		$.get('compras.php',function(e){
-			
+
 		}).fail(function (){
-			evento.preventDefault();	
+			evento.preventDefault();
 		});
 	});
-}	
+}
 $(document).on('ready',inicio);

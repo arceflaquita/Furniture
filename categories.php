@@ -85,7 +85,7 @@
 								</div>
 								<div class='choose'>
 									<ul class='nav nav-pills nav-justified'>
-                    <li class='añadir'><a href='carritodecompras.php?id=".$row['id_producto']."' style='color:white;'>Añadir a la Cesta</a></li>
+                    <li class='añadir'><a href='agregarCarrito.php?id=".$row['id_producto']."' style='color:white;'>Añadir a la Cesta</a></li>
 										<li class='detalles'><a href='consultaDetalleProducto.php?idProducto=".$row['id_producto']."' style='color:black;'></i>Detalles</a></li>
 									</ul>
 								</div>
