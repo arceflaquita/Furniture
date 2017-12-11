@@ -93,7 +93,7 @@ while($row=$resulte->fetch_assoc()){
 
         <div class="col-md-12">
           <div class="signup-form"><!--sign up form-->
-            <h2>Consulta Producto</h2>
+            <h2>Detalle del Producto</h2>
             <form action="updateProducto.php" method="post" id="formA" enctype="multipart/form-data">
               <input type='text' style='display:none;' name='txtIdproducto' id='txtIdproducto'  value=<?php echo $idProducto?> />
             <div class="col-md-7" >

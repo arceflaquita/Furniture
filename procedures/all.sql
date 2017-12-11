@@ -325,7 +325,9 @@ CREATE PROCEDURE spSaveAddress(
   IN _entre_calles  varchar(512),
   IN _referencias  varchar(255),
   IN _codigo_postal   int,
-  IN _telefono   bigint
+  IN _telefono   bigint,
+  IN _id_estado   int,
+  IN _id_municipio   int
 )
 
 BEGIN
@@ -346,7 +348,9 @@ colonia = _colonia,
 entre_calles = _entre_calles,
 referencias = _referencias,
 codigo_postal = _codigo_postal,
-telefono = _telefono
+telefono = _telefono,
+id_estado = _id_estado,
+id_municipio = _id_municipio
 WHERE id_cliente = @_id_cliente;
 
 END $$

@@ -31,6 +31,7 @@
 <body>
 	<header id="header"><!--header-->
     <?php include_once('header.php'); ?>
+    <?php include_once('conexion.php'); ?>
 	</header><!--/header-->
 
 	<section>
@@ -73,6 +74,38 @@
           <tr>
             <td><label for="codigo_postal">Código postal</label><span style="color:red;">&nbsp;*</span></td>
             <td><input type='text' name='txtcodigo_postal' required/></td>
+          </tr>
+          <tr>
+            <td><label for="estado">Estado</label><span style="color:red;">&nbsp;*</span></td>
+            <td>
+              <select name="estado" id="estado">
+              <?php
+              $resultado="<option value='0'>Seleccione un Estado</option>";
+              $sql="select * from pv_estado";
+              $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+                while($row1=$result->fetch_assoc()){
+                  $resultado.=" <option value='".$row1['id_estado']."' ";
+                  $resultado.="  >".$row1['estado']."</option>";
+                }
+              echo $resultado;
+              ?>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="municipio">Municipio</label><span style="color:red;">&nbsp;*</span></td>
+            <td><select name="municipio" id="municipio">
+              <?php
+              $resultado="<option value='0'>Seleccione un Municipio</option>";
+              $sql="select * from pv_municipio";
+              $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+                while($row1=$result->fetch_assoc()){
+                  $resultado.=" <option value='".$row1['id_municipio']."' ";
+                  $resultado.="  >".$row1['municipio']."</option>";
+                }
+              echo $resultado;
+              ?>
+            </select></td>
           </tr>
           <tr>
             <td><label for="telefono">Teléfono</label><span style="color:red;">&nbsp;*</span></td>

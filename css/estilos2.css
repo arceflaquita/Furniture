@@ -1,5 +1,3 @@
-
-
 #logo{
 	width: 150px;
 	height: 150px;
@@ -12,44 +10,7 @@
 	-moz-box-shadow:    0px 0px 10px rgba(74, 74, 74, 0.75);
 	box-shadow:         0px 0px 10px rgba(74, 74, 74, 0.75);
 }
-.producto{
-	width: 20%;
-	height: auto;
-	
-	display: inline-block;
-	vertical-align: top;
-	margin-left: 1%;
-	margin-top: 1%;
-	color: #4a4a4a;
-	font-weight: bolder;
-	font-size: 1.2rem;
-	padding: 1%;
-	-webkit-box-shadow: 0px 0px 10px rgba(240, 240, 240, 0.75);
-	-moz-box-shadow:    0px 0px 10px rgba(240, 240, 240, 0.75);
-	box-shadow:         0px 0px 10px rgba(240, 240, 240, 0.75);
-	-webkit-transition: all 1s ease-in-out;
-	-moz-transition: all 1s ease-in-out;
-}
-.producto:hover{
 
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-}
-.producto img{
-	width: 200px;
-	height: 200px;
-	margin:0 auto;
-	border-radius: 50%;
-	-webkit-box-shadow: 0px 0px 10px rgba(74, 74, 74, 0.75);
-	-moz-box-shadow:    0px 0px 10px rgba(74, 74, 74, 0.75);
-	box-shadow:         0px 0px 10px rgba(74, 74, 74, 0.75);
-	-webkit-transition: all 1s ease-in-out;
-	-moz-transition: all 1s ease-in-out;
-}
-.producto img:hover{
-	-webkit-transform: rotate(355deg);
-	-moz-transform: rotate(355deg);
-}
 .producto a{
 	background-color: #4a4a4a;
 	padding: 3px;
@@ -59,6 +20,15 @@
 	padding-right: 20px;
 	border-radius: 4px;
 }
+
+.producto h2 {
+  color: #696763;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
 .aceptar{
 	background-color: #f13453;
 	color:white;
@@ -66,9 +36,8 @@
 	padding-right: 20px;
 	border-radius: 4px;
 	font-size: 1.3rem;
-
-
 }
+
 .aceptar:hover{
 	background-color: #4a4a4a;
 	cursor: pointer;
@@ -84,7 +53,7 @@
 
 .menu2 li {
   border-right  : 1px solid rgba(200,200,255,0.5);
-  border-left   : 1px solid rgba(40,40,40,0.2); 
+  border-left   : 1px solid rgba(40,40,40,0.2);
 }
 
 .selected {
@@ -107,9 +76,10 @@ a.fun {
 #formulario{
 	width: 50%;
 	height: auto;
-	
+
 	margin:0 auto;
 }
+
 input{
 	width: 80%;
 	height: 30px;

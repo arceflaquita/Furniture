@@ -14,7 +14,6 @@
     <link href="css/animate.css" rel="stylesheet">
   	<link href="css/main.css" rel="stylesheet">
   	<link href="css/responsive.css" rel="stylesheet">
-
     <link href="css/furniture.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -34,7 +33,26 @@
     include_once('header.php');
     include_once('conexion.php');
     $email = $_SESSION['email'];
-    $sql = "CALL spQueryAddress ('" . $email ."');";
+    //$sql = "CALL spQueryAddress ('" . $email ."');";
+    $sql = "SELECT nombre_cliente,
+      ap_paterno_cliente,
+      ap_materno_cliente,
+      email,
+      calle,
+      numero_exterior,
+      numero_interior,
+      colonia,
+      entre_calles,
+      referencias,
+      codigo_postal,
+      nombre_contacto,
+      telefono,
+      id_estado,
+      id_municipio
+    FROM pv_cliente pc
+    INNER JOIN pv_usuario pu
+    ON pc.id_cliente = pu.id_cliente
+    WHERE email = '" . $email . "'";
     //echo $sql;
     $result = $conn->query($sql) or die ("Error: " . mysqli_error($conn));
     //var_dump($result);
@@ -83,6 +101,44 @@
           <tr>
             <td><label for="codigo_postal">Código postal</label><span style="color:red;">&nbsp;*</span></td>
             <td><input type='text' name='txtcodigo_postal'  value="<?php echo $row['codigo_postal']; ?>" required/></td>
+          </tr>
+          <tr>
+            <td><label for="estado">Estado</label><span style="color:red;">&nbsp;*</span></td>
+            <td>
+              <select name="estado" id="estado">
+              <?php
+              $resultado="<option value='0'>Seleccione un Estado</option>";
+              $sql="select * from pv_estado";
+              $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+                while($row1=$result->fetch_assoc()){
+                  $resultado.=" <option value='".$row1['id_estado']."' ";
+                  if($row['id_estado'] == $row1['id_estado']){
+                    $resultado.="selected";
+                  }
+                  $resultado.="  >".$row1['estado']."</option>";
+                }
+              echo $resultado;
+              ?>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="municipio">Municipio</label><span style="color:red;">&nbsp;*</span></td>
+            <td><select name="municipio" id="municipio">
+              <?php
+              $resultado="<option value='0'>Seleccione un Municipio</option>";
+              $sql="select * from pv_municipio";
+              $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
+                while($row1=$result->fetch_assoc()){
+                  $resultado.=" <option value='".$row1['id_municipio']."' ";
+                  if($row['id_municipio'] == $row1['id_municipio']){
+                    $resultado.="selected";
+                  }
+                  $resultado.="  >".$row1['municipio']."</option>";
+                }
+              echo $resultado;
+              ?>
+            </select></td>
           </tr>
           <tr>
             <td><label for="telefono">Teléfono</label><span style="color:red;">&nbsp;*</span></td>

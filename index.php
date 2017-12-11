@@ -98,7 +98,7 @@
 											<img src='files/".$row['imagen']."' style='height: 139px;'  />
 											<h2>$".$row['precio_venta']."</h2>
 											<p>".$row['producto']."</p>
-                      <p style='color:gray;'>".$row['descripcion']."</p>
+                      <p style='color:gray;'>". substr($row['descripcion'], 0, 80) ."</p>
 										</div>
 										<div class='product-overlay'>
 											<div class='overlay-content'>

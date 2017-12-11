@@ -15,7 +15,6 @@
     <link href="css/animate.css" rel="stylesheet">
 	  <link href="css/main.css" rel="stylesheet">
 	  <link href="css/responsive.css" rel="stylesheet">
-
     <link href="css/furniture.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
@@ -35,14 +34,9 @@
   </header><!--/header-->
 	<section id="form"><!--form-->
 		<div class="container">
-	
 				<div class="col-md-10">
-
-					<?php include_once('insertarVenta.php'); ?>
-                 
-
+					<?php include_once('insertarVenta.php'); ?>    
 				</div>
-			
 		</div>
 	</section><!--/form-->
 

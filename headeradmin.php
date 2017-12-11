@@ -26,7 +26,7 @@
     <div class="row">
       <div class="col-sm-4">
         <div class="logo pull-left">
-          <a href="index.html"><img class="logo" src="images/home/logo.png" alt="" /></a>
+          <a href="index.php"><img class="logo" src="images/home/logo.png" alt="" /></a>
         </div>
       </div>
     </div>
@@ -52,6 +52,13 @@
             <li><a href="searchProvedor.php" class="active">PROVEDORES</a></li>
             <li><a href="searchProducto.php" class="active">PRODUCTOS</a></li>
             <li><a href="queryCustomers.php" class="active">CLIENTES</a></li>
+            <?php
+            if($_SESSION['id_categoria'] == 1){
+            ?>
+              <li><a href="reporte.php" class="active">REPORTE VENTAS</a></li>
+            <?php
+            }
+            ?>
           </ul>
           </b>
         </div>
