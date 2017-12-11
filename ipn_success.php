@@ -1,5 +1,6 @@
-
-<?php session_start(); ?>
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,7 @@
 	<section id="form"><!--form-->
 		<div class="container">
 				<div class="col-md-10">
-					<?php include_once('insertarVenta.php'); ?>    
+					<?php include_once('insertarVenta.php'); ?>
 				</div>
 		</div>
 	</section><!--/form-->

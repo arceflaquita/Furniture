@@ -104,8 +104,10 @@
 					<input type="hidden" name="return" value="http://localhost/Furniture/ipn_success.php">
 					<input type="hidden" name="cancel_return" value="http://localhost/Furniture/ipn_error.php">
 				  -->
+
 					<input type="hidden" name="return" value="http://alfaweb.com.mx/planes/alumndb2/Furniture/ipn_success.php">
           <input type="hidden" name="cancel_return" value="http://alfaweb.com.mx/planes/alumndb2/Furniture/ipn_error.php">
+
 					<?php
 						for($i=0;$i<count($datos);$i++){
 					?>
