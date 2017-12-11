@@ -22528,15 +22528,6 @@ function ReadCSS($html) {
 	// Remove Comment tags /* ...  */ inside CSS as <style> in HTML document
 
   //PROMAN
-  preg_match_all('/<style.*?>(.*?)<\/style>/si',$html,$m);
-	if (count($m[1])) {
-		for($i=0;$i<count($m[1]);$i++) {
-			// Remove comment tags
-			$sub = preg_replace('/(<\!\-\-|\-\->)/s',' ',$m[1][$i]);
-			$sub = preg_replace('|/\*.*?\*/|s',' ',$sub);
-			$html = preg_replace('/'.preg_quote($m[1][$i], '/').'/si', $sub, $html);
-		}
-	}
 
 	$html = preg_replace('/<!--mpdf/i','',$html);
 	$html = preg_replace('/mpdf-->/i','',$html);
