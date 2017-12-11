@@ -100,8 +100,12 @@
 					<input type="hidden" name="upload" value="1">
 					<input type="hidden" name="business" value="furniture_test@gmail.com">
 					<input type="hidden" name="currency_code" value="MXN">
+					<!--
 					<input type="hidden" name="return" value="http://localhost/Furniture/ipn_success.php">
-            <input type="hidden" name="cancel_return" value="http://localhost/Furniture/ipn_error.php">
+					<input type="hidden" name="cancel_return" value="http://localhost/Furniture/ipn_error.php">
+				  -->
+					<input type="hidden" name="return" value="http://alfaweb.com.mx/planes/alumndb2/Furniture/ipn_success.php">
+          <input type="hidden" name="cancel_return" value="http://alfaweb.com.mx/planes/alumndb2/Furniture/ipn_error.php">
 					<?php
 						for($i=0;$i<count($datos);$i++){
 					?>

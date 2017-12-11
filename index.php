@@ -67,7 +67,7 @@
             $idProvedor="";
             $imagen="";
             $contador=0;
-            $sql="CALL searchProductos();";
+            $sql="CALL spGetProductsByCategory(1);";
             $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
             while($row=$result->fetch_assoc()){
             echo "<div class='panel panel-default'>
@@ -98,7 +98,9 @@
 											<img src='files/".$row['imagen']."' style='height: 139px;'  />
 											<h2>$".$row['precio_venta']."</h2>
 											<p>".$row['producto']."</p>
-                      <p style='color:gray;'>". substr($row['descripcion'], 0, 80) ."</p>
+                      <p style='color:gray;'>". substr($row['descripcion'], 0, 100) . "
+                      <a href='consultaDetalleProducto.php?idProducto=".$row['id_producto']."'>...</a>
+                      </p>
 										</div>
 										<div class='product-overlay'>
 											<div class='overlay-content'>

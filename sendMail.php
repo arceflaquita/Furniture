@@ -39,8 +39,9 @@
             $name = $_POST['name'];
             $email = $_POST['email'];
             $subject = $_POST['subject'];
-            $message = $_POST['message'];
-            mail($email, $subject, $message);
+            $message = $_POST['message'] . "\n\nFrom: " . $email ;
+            $to = "furnitinfo@gmail.com";
+            mail($to, $subject, $message);
             echo "<h2>Su correo se envio correctamente!</h2>";
             ?>
 	    		</div>

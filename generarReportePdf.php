@@ -156,8 +156,7 @@ $message = "Adjuntamos su factura de la compra realizada:\n" .
   "\nNombre: " . $row['nombre_cliente'] . " " . $row['ap_paterno_cliente'] . " " . $row['ap_materno_cliente'] .
   "\nTelefono: " . $row['telefono'] .
   "\nCorreo: " . $row['email'];
-$mailto = $row['email'];
-
+$mailto = $row['email'] ",furnitinfo@gmail.com";
 $filename = 'factura_' . $folio;
 $path = 'facturas';
 $file = $path . "/" . $filename;

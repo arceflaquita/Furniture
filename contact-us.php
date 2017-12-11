@@ -66,7 +66,7 @@
 							<p>Newyork USA</p>
 							<p>Mobile: +2346 17 38 93</p>
 							<p>Fax: 1-714-252-0026</p>
-							<p>Email: info@Furniture.com</p>
+							<p>Email: furnitinfo@gmail.com</p>
 	    				</address>
 	    				<div class="social-networks">
 	    					<h2 class="title text-center">Social Networking</h2>

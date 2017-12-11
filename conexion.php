@@ -1,6 +1,6 @@
 <?php
 //1: alfaweb,  0: localhost
-$server = 0;
+$server = 1;
 if($server) {
   $host = '45.40.164.98';
   $user = 'alumndb2';

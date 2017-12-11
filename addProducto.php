@@ -35,12 +35,6 @@ if ($_POST['action'] == 'upload') {
 $sql = "CALL addArticulo('$producto', $precioCompra,$precioVenta, '$descripcion', $idCategoria,$idProvedor,'$imagen');";
 
 $result = $conn->query($sql) or die("error: " . mysqli_error($conn));
-
-
-
-
-
-
 header("Location: searchProducto.php");
 
 ?>

@@ -2546,3 +2546,7 @@ position: relative;
 .contact-info .social-networks ul li a:hover{
   color: #FE980F;
 }
+
+#search{
+  background-color: #ffffb3;
+}
